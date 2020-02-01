@@ -50,7 +50,17 @@
 
 \usepackage{nameref}
 
-\newcommand{\TODO}{{\Huge\textcolor{HeavyRed}{\danger !!!TODO!!! \danger}}}
+\newcommand{\OLDTODO}{\Huge{\danger !!!TODO!!! \danger}}
+\usepackage{todonotes}
+
+\makeatletter
+\newcommand*{\currentname}{\@currentlabelname}
+\makeatother
+
+\newcommand{\TODO}{%
+\todo[inline]{\currentname\OLDTODO}
+}
+
 
 \newcommand{\picturetext}[2]{%
 \begin{minipage}{.45\linewidth}%
@@ -144,6 +154,10 @@ Verständnisses noch der hier behandelten Themen.
 
 Ich stelle dieses Dokument unter die WTFPL\footnote{Siehe dazu \url{http://www.wtfpl.net/}.}. Jeder kann damit machen, was er oder sie möchte, und das völlig ohne Einschränkungen
 jedweder Art. Gleichzeitig bin ich aber für das, was Jemand mit diesem Dokument macht, nicht verantwortlich.
+
+\section{TODOs}
+
+\listoftodos*
 
 \newpage
 
