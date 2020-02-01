@@ -1547,11 +1547,12 @@ während Eve jede Kommunikation zwischen Beiden mithören kann.
 
 \begin{center}
 	\begin{tikzpicture}[every node/.style={minimum width=1.5cm}]
-		\node[alice] (alice) {Alice};
-		\node[bob, right= 4cm of alice, mirrored] (bob) {Bob};
+		\node[alice, monitor] (alice) {Alice};
+		\node[bob, right= 4cm of alice, mirrored, monitor] (bob) {Bob};
 		\draw[->, thick] (alice) -- coordinate[near start] (aux) (bob);
-		\node[devil, above right=-5mm and 1cm of alice] (priest) {Eve};
-		\draw[->,red, ultra thick] (priest)--(aux);
+		\draw[->, thick] (bob) -- coordinate[near start] (aux) (alice);
+		\node[devil, above right=-5mm and 1cm of alice, monitor, sword] (eve) {Eve};
+		\draw[->, red, thick] (eve)--(aux);
 	\end{tikzpicture}
 \end{center}
 
