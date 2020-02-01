@@ -74,6 +74,15 @@
     shapes,shadows,matrix}
 \usepackage{tikzpeople}
 
+\newcommand{\stargraph}[2]{\begin{tikzpicture}
+    \node[circle,fill=black] at (360:0mm) (center) {$0$};
+    \foreach \n in {1,...,#1}{
+        \node[circle,fill=black] at ({\n*360/#1}:#2cm) (n\n) {$\n$};
+        \draw (center)--(n\n);
+        \node at (0,-#2*1.5) {$S_{#1}$}; % delete line to remove label
+    }
+\end{tikzpicture}}
+
 
 \usepackage[
 	hidelinks,
@@ -1551,7 +1560,7 @@ während Eve jede Kommunikation zwischen Beiden mithören kann.
 		\node[bob, right= 4cm of alice, mirrored, monitor] (bob) {Bob};
 		\draw[->, thick] (alice) -- coordinate[near start] (aux) (bob);
 		\draw[->, thick] (bob) -- coordinate[near start] (aux) (alice);
-		\node[devil, above right=-5mm and 1cm of alice, monitor, sword] (eve) {Eve};
+		\node[devil, above right=-0.5cm and 1cm of alice, monitor, sword] (eve) {Eve};
 		\draw[->, red, thick] (eve)--(aux);
 	\end{tikzpicture}
 \end{center}
@@ -2141,7 +2150,7 @@ Beispiel.
 Bei einer Kantenkontraktion wird eine Kante zwischen zwei Knoten entfernt und 
 die beiden Knoten zu einem Knoten zusammengefasst.
 
-\begin{figure}[h!]
+\begin{figure}[h!!!]
 \centering
 \begin{subfigure}{.5\textwidth}
 	\centering
@@ -2173,9 +2182,32 @@ die beiden Knoten zu einem Knoten zusammengefasst.
 \label{gradmatrix}
 
 Die Gradmatrix eines Graphen besteht aus Einträgen in der Hauptdiagonale, die 
-je den Grad des Knoten bestimmen.
+je den Grad des Knoten bestimmen. Betrachten wir dazu den Stern $S_4$.
 
-\TODO
+\stargraph{3}{2}
+
+Dieser besitzt die Gradmatrix:
+
+\begin{equation}
+	G = \begin{array}{r|c}
+	& \begin{matrix} 1 & 2 & 3 & 4 \end{matrix} \\
+	  \hline
+	  \begin{matrix}
+			1\\
+			2\\
+			3\\
+			4\\
+		\end{matrix} &
+		\begin{pmatrix*}
+			3 & 0 & 0 & 0\\
+			0 & 1 & 0 & 0\\
+			0 & 0 & 1 & 0\\
+			0 & 0 & 0 & 1\\
+		\end{pmatrix*}
+	\end{array}
+\end{equation}
+
+Knoten $1$ ist das Zentrum des Sterns.
 
 
 \subsubsection{Adjazenzmatrix}
@@ -2672,28 +2704,28 @@ ein Teilerverband und eine Halbordnung, da für alle $x, y \in \mathcal{T}$ gilt
 \begin{wrapfigure}{r}{5cm}
 	\centering
 	\begin{tikzpicture}
-		\node (max) at (0,2) {$90$};
-		\node (a) at (-1,1) {$6$};
-		\node (b) at (0,1) {$10$};
-		\node (c) at (1,1) {$15$};
+		\node (max) at (0,2) {$70$};
+		\node (a) at (-1,1) {$10$};
+		\node (b) at (0,1) {$14$};
+		\node (c) at (1,1) {$35$};
 		\node (d) at (-1,0) {$2$};
-		\node (e) at (0,0) {$3$};
-		\node (f) at (1,0) {$5$};
+		\node (e) at (0,0) {$5$};
+		\node (f) at (1,0) {$7$};
 		\node (min) at (0,-1) {$1$};
 		\draw (min) -- (d) -- (a) -- (max) -- (b) -- (f)
 		(e) -- (min) -- (f) -- (c) -- (max)
 		(d) -- (b);
 		\draw[preaction={draw=white, -,line width=6pt}] (a) -- (e) -- (c);
 	\end{tikzpicture}
-	\caption{Hasse-Diagramm des Teilerverbandes von 90 \TODO}
+	\caption{Hasse-Diagramm des Teilerverbandes von 70}
 	\label{hasse}
 \end{wrapfigure}
 
 Hasse-Diagramme sind eine Möglichkeit, Halbordnungen mithilfe eines
 gerichteten Graphen darzustellen. 
 
-Das Hasse-Diagramm vom Teilerverband der Teiler von 90 (mit 
-$\mathcal{T}(90) = \left\{1, 2, 3, 5, 6, 10, 15, 90\right\}$) sich darstellen als
+Das Hasse-Diagramm vom Teilerverband der Teiler von 70 (mit 
+$\mathcal{T}(70) = \left\{1, 2, 5, 7, 10, 14, 35, 70\right\}$) sich darstellen als
 Graph (siehe dazu Abbildung \ref{hasse}).
 
 Dabei werden zwei Knoten $a, b \in M$ verbunden, wenn gilt: $aRb$ (d.,\,h. wenn
