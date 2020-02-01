@@ -1,0 +1,3 @@
+digraph lgabc {
+a -- b -- c;
+}

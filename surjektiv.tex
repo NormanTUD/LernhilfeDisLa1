@@ -1,0 +1,17 @@
+\begin{figure}[h!]
+ \centering
+ \begin{tikzpicture}[ele/.style={fill=black,minimum size=2pt,circle}, node distance=7pt]
+  \node[ele] (a1) {};
+  \node[ele] (a2) [below=of a1] {};
+  \node[ele] (a3) [below=of a2] {};
+  \node[ele] (a4) [below=of a3] {};
+  \node[ele] (b1) [right=of a1,xshift=15pt] {};
+  \node[ele] (b2) [below=of b1] {};
+  \node[ele] (b3) [below=of b2] {};
+  \node[ele] (b4) [below=of b3] {};
+  \draw[->,thick] (a1) -- (b4);
+  \draw[->,thick] (a2) -- (b2);
+  \draw[->,thick] (a3) -- (b1);
+  \draw[->,thick] (a4) -- (b3);
+ \end{tikzpicture}
+\end{figure}

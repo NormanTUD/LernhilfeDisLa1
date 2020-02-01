@@ -1,0 +1,134 @@
+\documentclass{scrartcl}
+
+\emergencystretch2em
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage[widespace]{fourier}
+\usepackage{geometry,mathtools,amsmath}
+\usepackage{tikz}
+\usetikzlibrary{petri,topaths,matrix,chains,positioning,decorations.pathreplacing,arrows}
+\usetikzlibrary{calc,decorations.pathmorphing,patterns}
+\usetikzlibrary{calc} % 2, 3, 4
+\usetikzlibrary{decorations.shapes,shapes} % 3
+\usetikzlibrary{patterns}
+\usepackage{tkz-graph}
+\usepackage{tkz-berge}
+\usepackage{qtree}
+\usepackage{soulutf8}
+\usepackage{color, colortbl}
+\definecolor{LightCyan}{rgb}{0.56,0.93,0.56}
+\definecolor{HeavyRed}{rgb}{1,0,0}
+\usetikzlibrary{tikzmark}
+\usepackage{array}
+\usepackage{mathtools}
+\usepackage{xcolor,cancel}
+
+\newcommand*{\QEDA}{\hfill\ensuremath{\blacksquare}}%
+\newcommand*{\QEDB}{\hfill\ensuremath{\square}}%
+
+\newcommand{\ro}[1]{\ensuremath{\overline{\textrm{\underline{#1}}}}}
+\newcommand{\ggt}[1]{\ensuremath{\textrm{ggT}\left(#1\right)}}
+\usepackage{amssymb}% http://ctan.org/pkg/amssymb
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+\newcommand{\cmark}{\textcolor{green}{\checkmark}}
+\newcommand{\xmark}{\textcolor{red}{X}}
+\newcommand{\importantmark}{\textcolor{red}{\danger}\ }
+\newcommand\hcancel[2][black]{\setbox0=\hbox{$#2$}%
+\rlap{\raisebox{.45\ht0}{\textcolor{#1}{\rule{\wd0}{1pt}}}}#2} 
+
+
+\newcommand{\TODO}{{\Huge\textcolor{HeavyRed}{\bomb !!!TODO!!! \bomb}}}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usetikzlibrary{automata}
+\usetikzlibrary{graphs}
+
+\usetikzlibrary{calc,trees,positioning,arrows,chains,shapes.geometric,%
+    shapes,shadows,matrix}
+
+
+\usepackage[
+	hidelinks,
+	breaklinks=true,
+	pdftex,
+	pdfauthor={Norman Koch},
+	pdfsubject={},
+	pdfkeywords={},
+	pdfproducer={},
+	pdfcreator={}]{hyperref}
+
+\author{Norman Koch}
+\title{Lernhilfe LA1/DIS1}
+
+\newcommand{\ExternalLink}{%
+    \tikz[x=1.2ex, y=1.2ex, baseline=-0.05ex]{% 
+        \begin{scope}[x=1ex, y=1ex]
+            \clip (-0.1,-0.1) 
+                --++ (-0, 1.2) 
+                --++ (0.6, 0) 
+                --++ (0, -0.6) 
+                --++ (0.6, 0) 
+                --++ (0, -1);
+            \path[draw, 
+                line width = 0.5, 
+                rounded corners=0.5] 
+                (0,0) rectangle (1,1);
+        \end{scope}
+        \path[draw, line width = 0.5] (0.5, 0.5) 
+            -- (1, 1);
+        \path[draw, line width = 0.5] (0.6, 1) 
+            -- (1, 1) -- (1, 0.6);
+        }
+}
+
+\newcommand*{\fullref}[1]{\hyperref[{#1}]{\hbox{\ExternalLink\textit{\nameref*{#1}} (\ref{#1})}}}
+
+\usepackage{titlesec}
+\newcommand{\sectionbreak}{\clearpage}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+\begin{document}
+
+\begin{tikzpicture}
+	\begin{scope}[every node/.style={circle,thick,draw}]
+		\node (eins) at (0,0) {1};
+		\node (zwei) at (-2,0) {2};
+		\node (drei) at (-2,-2) {3};
+		\node (vier) at (-2,-4) {4};
+		\node (fuenf) at (0,-2) {5};
+		\node (sechs) at (0,-4) {6};
+		\node (sieben) at (2,-4) {7};
+		\node (acht) at (4,-4) {8};
+		\node (zwoelf) at (6,-4) {12};
+		\node (zehn) at (4,-2) {10};
+		\node (elf) at (4,0) {11};
+		\node (neun) at (2,-2) {9};
+	\end{scope}
+
+	\begin{scope}[>={Stealth[black]},
+	]
+		\path (eins) edge node {} (zwei);
+		\path (zwei) edge node {} (drei);
+		\path (drei) edge node {} (vier);
+		\path (drei) edge node {} (fuenf);
+		\path (fuenf) edge node {} (sechs);
+		\path (fuenf) edge node {} (sieben);
+		\path (vier) edge node {} (sechs);
+		\path (sechs) edge node {} (sieben);
+		\path (sieben) edge node {} (acht);
+		\path (acht) edge node {} (zwoelf);
+		\path (acht) edge node {} (neun);
+		\path (neun) edge node {} (elf);
+		\path (elf) edge node {} (zehn);
+		\path (acht) edge node {} (zehn);
+	\end{scope}
+\end{tikzpicture}
+
+\end{document}

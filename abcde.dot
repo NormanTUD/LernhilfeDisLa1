@@ -1,0 +1,4 @@
+digraph abcde {
+a -- b -- c;
+a -- d[color="red"] -- c;
+}
