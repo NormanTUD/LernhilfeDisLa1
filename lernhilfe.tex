@@ -48,7 +48,11 @@
 \newcommand\hcancel[2][black]{\setbox0=\hbox{$#2$}%
 \rlap{\raisebox{.45\ht0}{\textcolor{#1}{\rule{\wd0}{1pt}}}}#2} 
 
-\newcommand{\TODO}{{\Huge\textcolor{HeavyRed}{\danger !!!TODO!!! \danger}}}
+\usepackage{nameref}
+
+\newcommand{\TODO}{%
+{\Huge\textcolor{HeavyRed}{\danger !!!TODO!!! \danger}}%
+}
 
 \newcommand{\picturetext}[2]{%
 \begin{minipage}{.45\linewidth}%
@@ -129,8 +133,6 @@
 Dieses Dokument stellt nach bestem Wissen und Gewissen mein Verständnis des im ersten Semester der Informatik an der TU Dresden
 in Linearer Algebra und Diskreten Strukturen dar. Ich erhebe weder Anspruch auf Vollständigkeit noch auf Richtigkeit meines
 Verständnisses noch der hier behandelten Themen.
-
-Themen, von denen ich denke, dass sie für die Klausur wichtig sind, habe ich mit dem Zeichen \importantmark markiert.
 
 Ich stelle dieses Dokument unter die WTFPL\footnote{Siehe dazu \url{http://www.wtfpl.net/}.}. Jeder kann damit machen, was er oder sie möchte, und das völlig ohne Einschränkungen
 jedweder Art. Gleichzeitig bin ich aber für das, was Jemand mit diesem Dokument macht, nicht verantwortlich.
@@ -279,7 +281,7 @@ Wir erhalten:
 Ersetzt man die konkreten Zahlen durch Variablen und erhöhlt dementsprechend die
 Anzahl der Multiplikationen, ist deutlich, dass dies allgemein gilt.
 
-\subsection{\importantmark Komplizierte Binominale relativ schnell ausrechnen}
+\subsection{Komplizierte Binominale relativ schnell ausrechnen}
 
 Um etwas wie $(a + b)^6$ schnell auszurechnen, nehmen wir das pascal'sche Dreieck bis zur sechsten Zeile:
 
@@ -321,20 +323,20 @@ Das pascal'sche Dreieck bietet übrigens auch \frq Shortcuts\flq\ zu einigen Bin
 	x < y \wedge y < z \implies x < z.
 \end{equation}
 
-\subsection{\importantmark Kommutativgesetz}
+\subsection{Kommutativgesetz}
 
 \begin{equation}
 	a \circ b = b \circ a
 \end{equation}
 
-\subsection{\importantmark Assoziativgesetz}
+\subsection{Assoziativgesetz}
 
 \begin{equation}
 	(a \circ b) \circ c = b (\circ a \circ c)
 \end{equation}
 
 
-\subsection{\importantmark Distributivgesetz}
+\subsection{Distributivgesetz}
 
 \begin{equation}
 	a \cdot (b \diamond c) = (a \cdot b) \diamond (a \cdot c)
@@ -404,7 +406,7 @@ System auch beweisen.
 Eine (sehr vereinfachte) Weise, sich solche Sätze vorzustellen, wäre z.\,B. \frq dieser Satz ist nicht beweisbar\flq.
 Wäre er beweisbar, wäre er wahr, also wäre er nicht beweisbar.
 
-\subsection{\importantmark Die Potenzmenge}
+\subsection{Die Potenzmenge}
 
 Die Potenzmenge einer Menge wird bezeichnet mit $\mathcal{P}(A)$ und beschreibt die Menge aller aus der Menge
 $A$ bildbaren Untermengen.
@@ -414,7 +416,7 @@ Die Potenzmenge der leeren Menge ist die Menge mit dem Element der leeren Menge:
 Die Kardinalität der Potenzmenge bei endlichen Mengen ist $|\mathcal{P}(A)| = 2^{|A|}$. Die Potenzmengen unendlicher
 Mengen sind strikt größer als die Ursprungsmengen.
 
-\subsection{\importantmark Binominalkoeffizienten}
+\subsection{Binominalkoeffizienten}
 
 Der Binominalkoeffizient gibt an, wie viele Möglichkeiten es gibt, aus $n$ Elementen $k$ auszuwählen, z.\,B. wie
 viele Möglichkeiten es gibt, beim Lotto $k = 6$ Zahlen aus $n = 49$ auszuwählen.
@@ -459,7 +461,7 @@ Für ein einfacheres Beispiel, sagen wir, wir haben 5 Murmeln und ziehen daraus 
 $\rightarrow$ 10 Kombination von Dreiermurmeln, wie wir aus den 5 Murmeln rausziehen können\footnote{Das lässt sich auch ausdrücken
 als $|M| = 5, \left|\left\{ N \middle| N\in \mathcal{P}(M) \wedge |N| = 3 \right\}\right| = 10$.}.
 
-\subsection{\importantmark Permutationen}
+\subsection{Permutationen}
 
 Eine Permutation ist eine bijektive Funktion, die $A$ nach $B$ eineindeutig abbildet.
 
@@ -505,13 +507,13 @@ Zylinder angeordnet).
 Boole'sche Funktionen haben als Eingabemenge $B^n = \{0, 1\}^n$ und als Ausgabemenge die Menge
 $B = \{0, 1\}$. Wir können diese Werte verstehen als \frq $0 = $ False\flq\ und \frq $1 = $ True\flq.
 
-\subsection{\importantmark Das DeMorgan'sche Gesetz}
+\subsection{Das DeMorgan'sche Gesetz}
 
 \label{DeMorgan}
 
 Kurz gesagt: $\lnot(x \wedge y) = \lnot x \lor \lnot y$. Wenn nötig, Beweis durch Wahrheitstabelle.
 
-\subsection{\importantmark Erfüllbarkeit}
+\subsection{Erfüllbarkeit}
 
 Eine Aussage $P$ ist dann erfüllbar, wenn es eine Variablenbelegung gibt, für die $P$ ein wahrer Ausdruck ist.
 
@@ -524,7 +526,7 @@ Beispiel:
 $P$ ist dann erfüllt, wenn $X$ wahr ist. Der Wahrheitswert von $Y$ spielt hier keine Rolle. $P$ ist also erfüllbar, weil
 es eine Belegung gibt, für die $P$ ein wahrer Satz ist.
 
-\subsection{\importantmark Konjunktive/Disjunktive Normalform}
+\subsection{Konjunktive/Disjunktive Normalform}
 
 \label{knfdnf}
 
@@ -591,7 +593,7 @@ wenden das DeMorgan'sche Gesetz (vgl. \fullref{DeMorgan}) an.
  (A \wedge \lnot B \wedge \lnot C) \lor (A \wedge B \wedge \lnot C)
 \end{equation*}
 
-\subsection{\importantmark Horn-Satisfiability}
+\subsection{Horn-Satisfiability}
 
 Der Horn-Satisfiability-Algorithmus\footnote{Der Algorithmus ist auch bekannt als \frq positive-1-Resolution\flq.} 
 (kurz: Horn-SAT) bietet eine Möglichkeit, die Erfüllbarkeit einiger Sätze, die in der \so{Horn}schen Normalform (welche eine KNF ist,
@@ -632,7 +634,7 @@ also streichen wir auch die zweite Klausel.
 und haben damit die Belegung, die die Bedingung erfüllt: $Y = 1, Z = 0, U = 0$.
 
 
-\subsection{\importantmark Mengenlehre}
+\subsection{Mengenlehre}
 
 \begin{figure}[h!]
 	\centering
@@ -673,7 +675,7 @@ genaue Ordnung hat).
 
 $\mathbb{C}$ ist dagegen z.\,b. nicht wohlgeordnet, denn es gibt kein eindeutig-kleinstes Element.
 
-\subsection{\importantmark Funktionen}
+\subsection{Funktionen}
 
 Funktionen bilden eine Menge auf eine andere anhand einer genau spezifizierten Regel ab.
 
@@ -688,7 +690,7 @@ denn dabei ist ersichtlich, welche Menge auf welche abgebildet wird (hier beide 
 
 \input{surjektiv}
 
-\paragraph{\importantmark Surjektivität}
+\paragraph{Surjektivität}
 
 Eine Funktion ist surjektiv, wenn jedes Element in der Zielmenge mindestens ein mal getroffen wird
 
@@ -697,7 +699,7 @@ Gleichung der Form $y = f(x)$ eine Lösung beinhaltet. Die Gleichung
 $y = \frac{1}{x}$ ist beispielsweise nicht surjektiv, weil für 
 $x = 0$ keine Lösung existiert.
 
-\paragraph{\importantmark Injektivität} Eine Funktion ist injektiv,
+\paragraph{Injektivität} Eine Funktion ist injektiv,
 wenn jedes Element der Zielmenge maximal einmal getroffen wird.
 
 Das heißt, für einen Beweis z.\,B., dass für jede injektive Funktion gelten muss:
@@ -735,7 +737,7 @@ $\langle 0, 1, 2\rangle$ löst sich auf zur Menge $\left\{0, \left\{0, 1\right\}
 Die Kardinalität der jeweiligen Untermenge bestimmt ihre Position, während ihr im Vergleich zu allen niedrigerkardinalen
 Mengen neues Element das Element an der jeweiligen Position bestimmt.
 
-\subsection{\importantmark Beweis durch vollständige Induktion}
+\subsection{Beweis durch vollständige Induktion}
 
 Bei einer vollständigen Induktion zeigt man, dass die These $T$ für $n = 0$ (bzw. 1 bzw. das erste Element, für das sie gelten soll) gilt,
 dann, dass sie für $n$ gilt und dann, dass sie auch für $n + 1$ gilt.
@@ -919,7 +921,7 @@ Ungleichung, aus der wir sehen, dass das für kein weiteres $n$ eine wahre Aussa
 $n^2 + 2n + 3 \not\leq 2$ ist, d.\,h. die Gleichung nur für $n \in \{0, 1\}$ gilt.
 Das heißt: der Beweis scheitert, weil wir eine falsche Induktionsannahme gemacht haben.
 
-\subsection{\importantmark Primzahlen}
+\subsection{Primzahlen}
 
 Eine Primzahl ist eine Zahl, die nur zwei Teiler aus $\mathbb{N}$ hat, nämlich $1$ und sich selbst.
 
@@ -973,7 +975,7 @@ So ist im Restklassenring $\mathbb{R}_{10}$ $2^{10}$:
 	\right)
 \end{equation}
 
-\subsection{\importantmark (Erweiterter) euklidischer Algorithmus}
+\subsection{(Erweiterter) euklidischer Algorithmus}
 
 \label{euklidalgo}
 
@@ -1148,13 +1150,13 @@ Man nehme die letzte Zeile (in der $r_i \not= 0$ ist und überprüfe:
 \end{equation}
 
 
-\subsection{\importantmark Das Lemma von Bezout}
+\subsection{Das Lemma von Bezout}
 
 Seien $m$ und $n$ Zahlen $\in \mathbb{N} \wedge m \not= 0 \wedge n \not= 0$, dann gibt es $a, b \in \mathbb{N}$, so dass
 $\textrm{ggT}(m, n) = am + bn$. $a$ und $b$ lassen sich mit dem erweitertem euklidischen Algorithmus (auch \frq E-Eukl\flq\ genannt,
 vgl. dazu \fullref{euklidalgo}) ermitteln.
 
-\subsection{\importantmark Körper}
+\subsection{Körper}
 
 Körper sind abstrakte algebraische Objekte, die aus einer Menge und zwei Operationen (\frq $+$\flq\ und \frq $\cdot$\flq) bestehen.
 
@@ -1174,7 +1176,7 @@ Für Körper gelten die folgende Regeln:
 		\end{equation}
 \end{itemize}
 
-\subsection{\importantmark Gruppen}
+\subsection{Gruppen}
 \label{gruppen}
 
 Gruppen bestehen aus:
@@ -1197,14 +1199,14 @@ Damit diese Dinge eine Gruppe ergeben, müssen für die Operation $\circ$ folgen
 
 Schreibweise: $(G, \circ, e)$.
 
-\subsubsection{\importantmark Halbgruppe}
+\subsubsection{Halbgruppe}
 
 \label{halbgruppe}
 
 Ist nur die Assoziativität gegeben, spricht man auch von einer Halbgruppe. Halbgruppen sind abstraktere Strukturen als Gruppen (die
 noch neutrale Elemente für $+, \cdot$ beinhalten und abgeschlosssen sein müssen).
 
-\subsubsection{\importantmark Spezialfall: Abelsche Gruppen}
+\subsubsection{Spezialfall: Abelsche Gruppen}
 
 \label{abelscheGruppe}
 
@@ -1217,7 +1219,7 @@ $$
 So sind $(\mathbb{N}, +)$ und $(\mathbb{N}, \cdot)$ abelsche Gruppen (denn $\forall a, b\in \mathbb{N}: a+b = b+1 \wedge a\cdot b=b\cdot a$),
 aber $(\mathbb{N}, /)$ (Division) ist keine, denn $\lnot \forall a, b \in \mathbb{N}: \frac{a}{b} = \frac{b}{a}$.
 
-\subsubsection{\importantmark Spezialfall: Zyklische Gruppen}
+\subsubsection{Spezialfall: Zyklische Gruppen}
 
 Eine zyklische Gruppe ist eine Gruppe modulo $n$, in der ein Element $g$ existiert, das, wenn man es potenziert, alle anderen Elemente der 
 Gruppe erreicht.
@@ -1250,7 +1252,7 @@ $g^0 = e$ (das neutrale Element), $g^1 = g$, $g^n = g \circ g^{n - 1}$ für $n \
 Eine Gruppe heißt zyklisch, wenn gilt: $G = \{g^n | n \in \mathbb{Z}\}$.
 
 
-\subsection{\importantmark Ring}
+\subsection{Ring}
 
 \label{ringe}
 Ein Ring besteht aus einer Menge $R$ und zwei zweistelligen Operationen,
@@ -1264,7 +1266,7 @@ Außerdem müssen die Distributivgesetze erfüllt sein, d.\,h.
 	(a + b)\cdot c = a\cdot c + b\cdot c.
 \end{equation}
 
-\subsubsection{\importantmark Restklassenring}
+\subsubsection{Restklassenring}
 
 Restklassenringe haben einen Maximalwert, so wie z.\,B. ein CPU mit einer Bitbreite von 16 nur \texttt{unsigned Integer} von
 0 bis 65535 verarbeiten kann und in einen Overflow läuft, wird die Zahl größer. Bei $2^{16} = 65536$ Bits wird jede gespeicherte
@@ -1291,13 +1293,13 @@ Dort ist $0 + 0 = 0, 1 + 0 = 1, 0 + 1 = 1, \underbrace{1 + 1 = 0}_{\mathrm{Wegen
 Damit wir rein praktisch nicht in riesige Zahlen laufen, können wir dank der Homomorphieregel nach jedem Rechenschritt einzeln
 modulo nehmen.
 
-\subsection{\importantmark Einheiten}
+\subsection{Einheiten}
 
 \label{einheiten}
 
 Eine Einheit ist ein Element $a$ eines Ringes $R$, für das gilt: $a \circ a^{-1} = e$ ($e = $ neutrales Element).
 
-\subsection{\importantmark Nullteiler}
+\subsection{Nullteiler}
 
 Ein Nullteiler eines Ringes $R_n$ ist eine von 0 verschiedene Zahl $a$, für die gilt: $a, b \in R_n: a \not= 0, b \not= 0: a\cdot b = 0 \mod n$.
 
@@ -1341,7 +1343,7 @@ Zeit lösen.
 		einer $\frac{2}{3}$-Wahrscheinlichkeit \frq ja\flq\ ausgeben.
 \end{enumerate}
 
-\subsection{\importantmark Multiplikative Gruppe Modulo $n$}
+\subsection{Multiplikative Gruppe Modulo $n$}
 
 Die Menge $\mathbb{Z}_n$ beinhaltet die Zahlen $\{0, 1, 2, \dots, n\}$. Aus dieser Menge lässt sich eine
 Gruppe definieren (vgl. \fullref{gruppen}).
@@ -1445,7 +1447,7 @@ Wir können das generalisieren zu $kn + 7$ mit $k \in \mathbb{N}$, da $7 \cdot 3
 Auch die 21 fällt jeweils weg und wird zu einer 1, denn $21 \equiv 1 \mod 10$. Daher sind alle Zahlen $kn + 7$ multiplikative Inverse von
 $3$ in $\mathbb{Z}_{10}^*$.
 
-\subsubsection{\importantmark Die eulersche $\phi$-Funktion}
+\subsubsection{Die eulersche $\phi$-Funktion}
 
 \label{eulerphi}
 
@@ -1496,7 +1498,7 @@ Daher kann man von jeder Zahl auch ihre Primfaktorzerlegung eingeben, so dass:
 	\phi(p \cdot q) = \phi(p) \cdot \phi(q) = (p - 1) \cdot (q - 1).
 \end{equation}
 
-\subsection{\importantmark Homomorphieregel}
+\subsection{Homomorphieregel}
 
 \label{homomorphismus}
 
@@ -1512,7 +1514,7 @@ Die Homomorphieregel besagt:
 	(a \cdot b) \mod n = (a \mod n) \cdot (b \mod n).
 \end{equation}
 
-\subsection{\importantmark Al-Kashi}
+\subsection{Al-Kashi}
 
 \label{alkashi}
 
@@ -1524,7 +1526,10 @@ Das Gesetz, das erlaubt, nach jeder Zwischenrechnung Modulo zu nehmen, heißt \f
 
 \subsection{Verschlüsselung}
 
-\TODO
+Verschlüsselungssysteme bieten eine Möglichkeit, Informationen geheimzuhalten und
+trotzdem gleichzeitig über öffentliche Netze zu übertragen, so dass jeder die
+übertragenen Daten mitlesen, aber nur die gewünschten Personen diese Daten entschlüsseln
+können.
 
 \subsubsection{Diffie-Hellmann}
 
@@ -1544,7 +1549,7 @@ Folgender Algorithmus beschreibt RSA:
 
 \TODO
 
-\subsection{\importantmark Graphentheorie}
+\subsection{Graphentheorie}
 
 Graphen sind eine sehr praktische Möglichkeit, eine sehr große Menge an Sachverhalten zu modellieren. Als Beispiele kann man Abhängigkeiten in 
 Modulsystemen anführen oder Navigationssysteme.
@@ -1615,6 +1620,10 @@ $E \subset \binom{V}{2}$ ist.
 	\caption{Ein komplexerer Beispielgraph}
 	\label{komplexergraph}
 \end{figure}
+
+\subsubsection{Grad eines Knoten}
+
+Der Grad eines Knoten bestimmt sich durch die ein- und ausgehenden Kanten, die an diesem Knoten anliegen.
 
 \subsubsection{Subgraphen}
 
@@ -2107,7 +2116,20 @@ die beiden Knoten zu einem Knoten zusammengefasst.
 	\right)$.}
 \label{kontraktiertergraph}
 \end{figure}
+
+\subsubsection{Gradmatrix}
+
+\label{gradmatrix}
+
+Die Gradmatrix eines Graphen besteht aus Einträgen in der Hauptdiagonale, die 
+je den Grad des Knoten bestimmen.
+
+\TODO
+
+
 \subsubsection{Adjazenzmatrix}
+
+\label{adjazenzmatrix}
 
 Die Adjazenzmatrix ist eine Möglichkeit, lineare Algebra und Graphentheorie zu verbinden. In einer solchen Adjazenzmatrix 
 stellt man eine Tabelle auf, die alle Knoten $V(G)$ beinhaltet und setzt den Wert an der $(x, y)$-Spalte auf $1$, wenn die
@@ -2122,11 +2144,11 @@ Knoten eine gemeinsame Kante ($\left(\left(x_1, x_2\right) \in V(G)\right) \wedg
 			b\\
 			c
 		\end{matrix} &
-		\begin{pmatrix}
+		\begin{pmatrix*}
 			0 & 1 & 0\\
 			1 & 0 & 1\\
 			0 & 1 & 0
-		\end{pmatrix}
+		\end{pmatrix*}
 	\end{array}
 \end{equation}
 
@@ -2235,10 +2257,235 @@ Spannbäume von $G = \left\{\left\{a, b, c, d\right\}, \left\{
 \subsubsection{Satz von Kirchhoff}
 
 Die Anzahl der Spannbäume eines Graphen kann mit dem Satz von Kirchhoff bestimmt
-werden über die Determinante der Adjazenzmatrix des Graphen.
+werden über die Determinante der \fullref{adjazenzmatrix} des Graphen.
 
-\TODO unvollständig \TODO
+Nehmen wir den Graphen $G = \left(
+	\left\{1, 2, 3, 4\right\},
+	\left\{
+		\left\{
+			1, 2
+		\right\},
+		\left\{
+			1, 3
+		\right\},
+		\left\{
+			3, 4
+		\right\},
+		\left\{
+			2, 3
+		\right\},
+		\left\{
+			2, 4
+		\right\}
+	\right\}
+\right)$ als Beispiel.
 
+
+\begin{tikzpicture}
+	\begin{scope}[every node/.style={circle,thick,draw}]
+		\node (eins) at (-1,-1) {$1$};
+		\node (zwei) at (1,-1) {$2$};
+		\node (drei) at (-1,1) {$3$};
+		\node (vier) at (1,1) {$4$};
+	\end{scope}
+
+	\begin{scope}[>={Stealth[black]}]
+		\path (eins) edge node {} (zwei);
+		\path (eins) edge node {} (drei);
+		\path (drei) edge node {} (vier);
+		\path (zwei) edge node {} (drei);
+		\path (zwei) edge node {} (vier);
+	\end{scope}
+\end{tikzpicture}
+
+Erzeugen wir als erstes die Adjazenzmatrix 
+
+\begin{equation}
+	A = \begin{array}{r|c}
+		& \begin{matrix} 1 & 2 & 3 & 4 \end{matrix} \\
+	  \hline
+	  \begin{matrix}
+			1\\
+			2\\
+			3\\
+			4
+		\end{matrix} &
+		\begin{pmatrix*}
+			0 & 1 & 1 & 0 \\
+			1 & 0 & 1 & 1 \\
+			1 & 1 & 0 & 1 \\
+			0 & 1 & 1 & 0 \\
+		\end{pmatrix*}
+	\end{array}.
+\end{equation}
+
+Nun bestimmen wir die \fullref{gradmatrix}:
+
+\begin{equation}
+	B = \begin{array}{r|c}
+		& \begin{matrix} 1 & 2 & 3 & 4 \end{matrix} \\
+	  \hline
+	  \begin{matrix}
+			1\\
+			2\\
+			3\\
+			4
+		\end{matrix} &
+		\begin{pmatrix*}
+			2 & 0 & 0 & 0 \\
+			0 & 3 & 0 & 0 \\
+			0 & 0 & 3 & 0 \\
+			0 & 0 & 0 & 2 \\
+		\end{pmatrix*}
+	\end{array}.
+\end{equation}
+
+Daraus lässt sich die sogenannte Laplace-Matrix berechnen:
+
+\begin{equation}
+	L = B - A
+\end{equation}
+
+\begin{equation}
+	L = \begin{pmatrix*}
+		2 & 0 & 0 & 0 \\
+		0 & 3 & 0 & 0 \\
+		0 & 0 & 3 & 0 \\
+		0 & 0 & 0 & 2 \\
+	\end{pmatrix*} - \begin{pmatrix*}
+		0 & 1 & 1 & 0 \\
+		1 & 0 & 1 & 1 \\
+		1 & 1 & 0 & 1 \\
+		0 & 1 & 1 & 0 \\
+	\end{pmatrix*} = \begin{pmatrix*}
+		2 & -1 & -1 & 0 \\
+		-1 & 3 & -1 & -1 \\
+		-1 & -1 & 3 & -1 \\
+		0 & -1 & -1 & 2\ \
+	\end{pmatrix*}.
+\end{equation}
+
+Aus dieser Matrix lassen sich nun je eine beliebige Zeile und Spalte löschen, z.\,B.
+\begin{equation}
+	L* = \begin{pmatrix*}
+		3 & -1 & -1 \\
+		-1 & 3 & -1 \\
+		-1 & -1 & 2\ \
+	\end{pmatrix*}.
+\end{equation}
+
+Von dieser Matrix können wir nun die \fullref{determinante} bilden:
+
+\begin{equation}
+	\det\begin{pmatrix*}
+		3 & -1 & -1 \\
+		-1 & 3 & -1 \\
+		-1 & -1 & 2\ \
+	\end{pmatrix*} = 8.
+\end{equation}
+
+Wir erhalten $8$, und $8$ ist die Anzahl der Spannbäume des Graphen $G$.
+
+\subsubsection{Satz von Cayley}
+
+\label{cayley}
+
+Der Satz von Cayley besagt, dass es $n^{n-2}$ verschiedene bezeichnete Bäume mit $n$ Knoten gibt. Dies kann unter Anderem
+bewiesen werden durch die \fullref{pruefercodes}.
+
+\subsubsection{Prüfer-Codes}
+
+\label{pruefercodes}
+
+Prüfer-Codes sind eine Methode, einen Baum eineindeutig mit einer Ziffernfolge zu beschreiben. Das heißt, dass jeder
+Baum einen spezifischen Prüfer-Code hat und aus jedem Prüfer-Code ein spezifischer Baum wiederhergestellt werden kann.
+Der Prüfer-Code eines Baumes mit $n$ Knoten hat $n - 2$ Zeichen, was den \fullref{cayley} beweist.
+
+Zum Erstellen des Prüfer-Codes wählt man sich einen beliebigen Baum und schaut sich die einzelnen Blätter an. Es wird
+das Blatt entfernt, das den geringsten Wert in der Beschriftung hat und in den Code der Wert des Knoten, an dem das
+Blatt hängt, geschrieben. Dies wird iterativ fortgeführt, bis nur noch zwei Knoten übrig sind.
+
+Beispiel.
+
+\begin{tikzpicture}
+	\begin{scope}[every node/.style={circle,thick,draw}]
+		\node (a) at (0,0) {$1$};
+		\node (b) at (-1,-1) {$2$};
+		\node (c) at (1,-1) {$3$};
+		\node (d) at (2,-2) {$4$};
+	\end{scope}
+
+	\begin{scope}[>={Stealth[black]}]
+		\path (a) edge node {} (c);
+		\path (b) edge node {} (a);
+		\path (c) edge node {} (d);
+	\end{scope}
+\end{tikzpicture}
+
+Die Blätter dieses Baumes sind $2, 4$. Das Blatt mit der geringsten Beschriftung
+ist die $2$. Also entfernen wir die $2$ und schreiben die $1$, an der die $2$ hängt,
+in den Prüfercode.
+
+\begin{tikzpicture}
+	\begin{scope}[every node/.style={circle,thick,draw}]
+		\node (a) at (0,0) {$1$};
+		\node (c) at (1,-1) {$3$};
+		\node (d) at (2,-2) {$4$};
+	\end{scope}
+
+	\begin{scope}[>={Stealth[black]}]
+		\path (a) edge node {} (c);
+		\path (c) edge node {} (d);
+	\end{scope}
+\end{tikzpicture}
+
+Prüfer-Code: $2$.
+
+Das nächstgeringste Blatt ist die $1$, also entfernen wir die $1$ und schreiben
+die $3$ in den Prüfer-Code.
+
+\begin{tikzpicture}
+	\begin{scope}[every node/.style={circle,thick,draw}]
+		\node (c) at (1,-1) {$3$};
+		\node (d) at (2,-2) {$4$};
+	\end{scope}
+
+	\begin{scope}[>={Stealth[black]}]
+		\path (c) edge node {} (d);
+	\end{scope}
+\end{tikzpicture}
+
+Prüfer-Code: $2, 3$.
+
+Nun sind nur noch die Knoten $3, 4$ übrig. Das heißt, der Algorithmus terminiert hier.
+
+Zur Rekonstruktion braucht man nun die Knotenmenge, $E(G) = \left\{1, 2, 3, 4\right\}$, 
+und den Prüfer-Code. \TODO
+
+
+
+
+\subsubsection{Planare Graphen}
+
+Ein planarer Graph ist ein Graph, der sich auf einer Ebene zeichnen lässt, ohne dass sich Kanten überschneiden.
+Ein Beispiel dafür ist (vereinfacht) das Straßennetz, solange Brücken und Tunnel nicht vorhanden sind. Ein anderes
+Beispiel wäre der Graph von Flüssen, wenn soetwas wie das Wasserstraßenkreuz Minden nicht berücksichtigt wird.
+
+\subsubsection{Minoren}
+
+\TODO
+
+\subsubsection{Satz von Kuratowski}
+
+\TODO
+
+\subsubsection{Eulerscher Polyedersatz}
+
+\TODO
+
+\subsubsection{Bipartite Graphen}
+
+\TODO
 
 \subsection{Partitionen}
 
@@ -2265,24 +2512,6 @@ Die Anzahl an möglichen Partitionen einer Menge lässt sich über die bell'sche
 \begin{equation}
 	B_{n + 1} = \sum_{k = 0}^n \binom{n}{k} B_k.
 \end{equation}
-
-\subsubsection{Planare Graphen}
-
-Ein planarer Graph ist ein Graph, der sich auf einer Ebene zeichnen lässt, ohne dass sich Kanten überschneiden.
-Ein Beispiel dafür ist (vereinfacht) das Straßennetz, solange Brücken und Tunnel nicht vorhanden sind. Ein anderes
-Beispiel wäre der Graph von Flüssen, wenn soetwas wie das Wasserstraßenkreuz Minden nicht berücksichtigt wird.
-
-\subsubsection{Satz von Kuratowski}
-
-\TODO
-
-\subsubsection{Eulerscher Polyedersatz}
-
-\TODO
-
-\subsubsection{Bipartite Graphen}
-
-\TODO
 
 
 \subsection{Relationen}
@@ -2447,20 +2676,16 @@ der Menge der natürlichen Zahlen, denn:
 		$c$, dann ist auch $a$ durch $c$ teilbar
 \end{itemize}
 
-\subsection{Satz von Cayley}
-
-\TODO
-
 
 \section{Lineare Algebra}
 
-\subsection{\importantmark Komplexe Zahlen}
+\subsection{Komplexe Zahlen}
 
 Komplexe Zahlen ($\mathbb{C}$) erweitern die reellen Zahlen um die Möglichkeit, Gleichungen
 der Struktur $x^2 + 1 = 0$ zu lösen, indem sie definieren, dass $i = \sqrt{-1}$ und folglich
 $i^2 = -1$ zulässige Zahlen sind.
 
-\subsubsection{\importantmark Division komplexer Zahlen}
+\subsubsection{Division komplexer Zahlen}
 
 Für die Division durch komplexe Zahlen kann man einen Trick anwenden:
 
@@ -2475,7 +2700,7 @@ Zähler als auch im Nenner an die Zahl. Das geht, weil sich dadurch die Relation
 wieder rausgestrichen werden). Der Vorteil ist, dass man die imaginäre Zahl damit aus dem 
 Nenner herauskriegen kann.
 
-\subsubsection{\importantmark Addition in den komplexen Zahlen}
+\subsubsection{Addition in den komplexen Zahlen}
 
 Die Addition in $\mathbb{C}$ geschieht komponentenweise, d.\,h.
 
@@ -2483,7 +2708,7 @@ Die Addition in $\mathbb{C}$ geschieht komponentenweise, d.\,h.
 	(a + bi) + (c + di) = (a+c) + ((b+d)i).
 \end{equation}
 
-\subsubsection{\importantmark Gaußsche Zahlenebene}
+\subsubsection{Gaußsche Zahlenebene}
 
 \begin{figure}[h!]
 	\includegraphics[width=\textwidth]{unit.pdf}
@@ -2505,7 +2730,7 @@ Zahlen können hier über drei Schreibweise exakt verortet werden.
 Wichtig zu merken ist für die letzten beiden Arten der Darstellung, dass $\pi$ eine halbe Umdrehung ist, so dass $2\pi$ eine ganze ist
 und $\frac{\pi}{2}$ eine Viertelumdrehung. Darüber kann man oft optisch gut abschätzen, wo sich die Zahl befindet.
 
-\subsubsection{\importantmark Umrechnen in andere Darstellungsformen}
+\subsubsection{Umrechnen in andere Darstellungsformen}
 
 Für einige Operationen eignen sich andere Darstellungsformen einer komplexen Zahl besser als Andere. Daher kurz die Umrechnungsregeln:
 
@@ -2529,7 +2754,7 @@ Für einige Operationen eignen sich andere Darstellungsformen einer komplexen Za
 Mithilfe des Arcus-Sinus oder Arcus-Cosinus können wir dann die Werte für $\phi$ bestimmen. Jedoch ist es sehr hilfreich,
 das geometrisch zu verstehen, denn häufig sind $\phi$-Werte gebrochen-rationale oder ganzzahlige Vielfache von $\pi$ (einer halben Drehung).
 
-\subsubsection{\importantmark Multiplikation komplexer Zahlen}
+\subsubsection{Multiplikation komplexer Zahlen}
 
 Wenn man zwei komplexe Zahlen multiplizieren will, z.\,B. $z_1 = 1 + 0i$ und $z_2 = 0 + 1i$, dann ist es einfacher,
 sie in die $e$-Funktionsschreibweise zu bringen.
@@ -2553,7 +2778,7 @@ Wir erhalten dann:
 Durch das $\frac{1}{2}\pi$ kriegen wir eine Viertelkreisdrehung und landen exakt auf $i$, ohne Stauchung oder Streckung durch Vorfaktoren. 
 Daher ist $z_1 \cdot z_2 = i$.
 
-\subsubsection{\importantmark Komplexe Potenzen}
+\subsubsection{Komplexe Potenzen}
 
 \begin{equation}
 	z = re^{i\phi},
@@ -2566,7 +2791,7 @@ dank \fullref{warumxhochn} können wir schlussfolgern:
 	z^n = r^n \cdot e^{n\cdot i\phi}.
 \end{equation*}
 
-\subsubsection{\importantmark Komplexe Wurzeln}
+\subsubsection{Komplexe Wurzeln}
 
 Komplexe Zahlen haben, im Gegensatz zu reellen, keine eineindeutige Wurzel mehr.
 
@@ -2575,9 +2800,9 @@ dann müssen wir $z$ erst in die eulersche Form umwandeln, i.\,e. $z = r\cdot e^
 
 Für $z^n$ sind die Wurzeln: $\sqrt[n]{r_0} \cdot e^{i \cdot \frac{\phi}{n} + \frac{2\pi}{n}\cdot k}$ für $k \in \{0, 1, 2, \dots, n - 1\}$.
 
-\subsection{\importantmark Matrixrechnung}
+\subsection{Matrixrechnung}
 
-\subsubsection{\importantmark Skalarmultiplikation}
+\subsubsection{Skalarmultiplikation}
 
 Matrizen werden skalar multipliziert, indem der Vorfaktor (hier $a$) an jeden einzelnen Wert
 heranmultipliziert wird:
@@ -2594,7 +2819,7 @@ heranmultipliziert wird:
 
 Diese Relation lässt sich auch umkehren, um Matrizen zu vereinfachen, indem man gemeinsame Vorfaktoren herauszieht.
 
-\subsubsection{\importantmark Matrixmultiplikation}
+\subsubsection{Matrixmultiplikation}
 
 Matrixmultiplikation funktioniert nur bei einigen Matrizen. Dabei kann nur eine $n\times m$-Matrix mit einer
 $m\times n$-Matrix multipliziert werden. Die Matrixmultiplikation ist \textbf{nicht} kommutativ, d.\,h. im
@@ -2621,7 +2846,7 @@ Beispiel.
 	\end{pmatrix*}.
 \end{equation}
 
-\subsubsection{\importantmark Matrixaddition}
+\subsubsection{Matrixaddition}
 
 Bei einer Matrixaddition werden einfach alle komponenten an den Positionen $\langle a, b\rangle$ in beiden Matrizen addiert.
 Dabei müssen die beiden Matrizen gleichen Types sein, d.\,h. $A^{n\times n} \wedge B^{n\times n}$.
@@ -2641,7 +2866,7 @@ Beispiel:
 	\end{pmatrix*}
 \end{equation}
 
-\subsubsection{\importantmark Die Zeilenstufenform}
+\subsubsection{Die Zeilenstufenform}
 
 \label{zeilenstufenform}
 Jede Matrix kann durch Operationen auf sie in die Zeilenstufenform überführt werden. Dazu sind zwei
@@ -2687,7 +2912,7 @@ Legale Operationen sind dabei die Multiplikation mit Skalaren aus $\mathbb{R}$ u
 Zeilen aus der Matrix selbst miteinander (z.\,B. die Zweite Zeile von der ersten abziehen oder addieren, d.\,h. Komponente-für-Komponente
 durchgehen und voneinander abziehen oder addieren). Außerdem kann man die Zeilen beliebig vertauschen.
 
-\subsubsection{\importantmark Lösung linearer Gleichungssysteme mit Matrizen}
+\subsubsection{Lösung linearer Gleichungssysteme mit Matrizen}
 
 Ein lineares Gleichungssystem der Form 
 \begin{equation}
@@ -2731,7 +2956,7 @@ das Gleichungssystem lösbar ist, eine Einsermatrix der Form
 
 Dann steht dort quasi $x = a, y = b$ und $z = c$.
 
-\subsection{\importantmark Matrixtransponierung}
+\subsection{Matrixtransponierung}
 
 Beim Transponieren einer Matrix wird die erste Zeile zur ersten Spalte, die zweite Spalte zur zweiten Zeile usw.
 
@@ -2756,7 +2981,7 @@ $$ A^T + B^T = (A + B)^T $$
 
 $$ (A \cdot B)^T = B^T \cdot A^T $$
 
-\subsection{\importantmark Vektorräume und Untervektorräume}
+\subsection{Vektorräume und Untervektorräume}
 
 \paragraph{Allgemeine Definition.} Sei $K$ ein Körper, dann ist $(V, +, \langle k | k \in K\rangle)$ ein K-Vektorraum.
 Dieser besteht aus:
@@ -2769,7 +2994,7 @@ Dieser besteht aus:
 Beispiele für Vektorräume sind der allgemeine $K$-VR oder mit spezifischen Körpern
 der $\mathbb{R}$-Vr oder $\mathbb{C}$-VR.
 
-\subsubsection{\importantmark Vektorraumaxiome}
+\subsubsection{Vektorraumaxiome}
 
 \begin{enumerate}
 	\item $\forall v_1, v_2 \in V$ ist $v_1 \times v_2$ ein eindeutig bestimmtes Element von $V$.
@@ -2784,7 +3009,7 @@ der $\mathbb{R}$-Vr oder $\mathbb{C}$-VR.
 	\item $\forall k \in K: \forall v_1, v_2 \in V: k(v_1 + v_2) = kv_1 + kv_2$
 \end{enumerate}
 
-\subsubsection{\importantmark Bestimmen, ob $U$ ein Untervektorraum von $V$ ist}
+\subsubsection{Bestimmen, ob $U$ ein Untervektorraum von $V$ ist}
 
 Um zu bestimmen, ob $U$ ein Untervektorraum von $V$ ist, muss man schauen, ob der Nullvektor in diesem Vektorraum ist.
 Das heißt, das Gleichungssystem
@@ -2813,7 +3038,7 @@ größer $1$ machen würde, aus dem Vektorraum hinaus und $U$ wäre kein Unterve
 Jeder Untervektorraum ist selbst wieder ein Vektorraum. Die anderen Axiome (z.\,B. die Assoziativität der Multiplikation) müssen
 nicht überprüft werden. Diese werden vom Übervektorraum \frq geerbt\flq.
 
-\subsection{\importantmark Lineare Abhängigkeit}
+\subsection{Lineare Abhängigkeit}
 
 \label{lineareabhaengigkeit}
 
@@ -2852,7 +3077,7 @@ miteinander verglichen haben.
 
 Die nun nicht-durchgestrichenen Vektoren sind keine Vielfache voneinander.
 
-\subsection{\importantmark Span bestimmen}
+\subsection{Span bestimmen}
 
 Gegeben sei 
 \begin{equation}
@@ -2924,7 +3149,7 @@ Der einzige Schritt, den wir jetzt noch checken müssen ist, ob die Parameter li
 Aus der Menge der untereinander linear abhängigen Parameter muss dann noch einer ausgewählt werden (welcher ist egal, denn sie sind alle \frq inhaltlich\flq\ gleich) und
 die anderen im Span verworfen werden.
 
-\subsection{\importantmark Die Dimension einer Matrix}
+\subsection{Die Dimension einer Matrix}
 
 \label{dimension}
 
@@ -2960,7 +3185,7 @@ Beispiel:
 Da der erste und zweite Vektor linear abhängig sind, fällt einer der beiden bei der Dimensionsbetrachtung weg. Daher gilt: $\textrm{Dim}\left(U\right) = 2$.
 Wenn die Spaltenvektoren keien Vielfachen sind, dann müssen auch noch die Zeilenvektoren überprüft werden.
 
-\subsection{\importantmark Der Rang einer Matrix}
+\subsection{Der Rang einer Matrix}
 
 Der Rang bezeichnet die Anzahl der unabhängigen Zeilen- und Spaltenvektoren einer Matrix.
 
@@ -3038,7 +3263,7 @@ Um die Zeilenstufenform zu vollenden, müssen wir nun nur noch den Zeilenführer
 und wir haben die Zeilenstufenform. Der Rang der Matrix ist die Anzahl von Zeilen, die nicht ausschließlich aus 0 bestehen.
 Das heißt: $\textrm{rang}(A) = 2$, weil von den drei Zeilen zwei nicht 0 sind.
 
-\subsection{\importantmark Der Kern einer Matrix}
+\subsection{Der Kern einer Matrix}
 
 Der Kern einer Matrix ist dadurch bestimmt, dass die Matrix multipliziert mit ihrem Kern zum Nullvektor wird. Das heißt abstrakt:
 $\textrm{Ker}(A^{n\times m}) = \left\{x \in \mathbb{R}^{n\times 1} \middle| Ax = \vec{0}\right\}$.
@@ -3093,7 +3318,9 @@ Die Dimension (vgl. \fullref{dimension}) des Kerns bestimmt sich durch die Anzah
 Beispiel $\textrm{dim}\left(\textrm{Ker}\left(U\right)\right) = 1$, da alle Werte 0 sind und damit linear
 abhängig voneinander.
 
-\subsection{\importantmark Determinante}
+\subsection{Determinante}
+
+\label{determinante}
 
 Die Determinante einer Matrix bestimmt im Zusammenhang mit der linearen Algebra die Flächen- bzw. Volumenveränderung einer
 Struktur, wenn man sie anhand dieser Matrix manipuliert.
@@ -3622,5 +3849,9 @@ woraus sich der Kern bestimmt als:
 \begin{equation}
 	A = SDS^{-1}
 \end{equation}
+
+\subsection{Projektion}
+
+\TODO
 
 \end{document}
