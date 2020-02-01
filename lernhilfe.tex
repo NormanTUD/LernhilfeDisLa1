@@ -50,7 +50,7 @@
 
 \usepackage{nameref}
 
-\newcommand{\OLDTODO}{\Huge{\danger !!!TODO!!! \danger}}
+\newcommand{\OLDTODO}{{\Huge{\danger !!!TODO!!! \danger}}}
 \usepackage{todonotes}
 
 \makeatletter
@@ -58,7 +58,7 @@
 \makeatother
 
 \newcommand{\TODO}{%
-\todo[inline]{\currentname\OLDTODO}
+\todo[inline]{\OLDTODO\currentname}
 }
 
 
@@ -157,7 +157,7 @@ jedweder Art. Gleichzeitig bin ich aber für das, was Jemand mit diesem Dokument
 
 \section{TODOs}
 
-\listoftodos*
+\listoftodos
 
 \newpage
 
