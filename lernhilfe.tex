@@ -2814,7 +2814,7 @@ $R$ könnte z.\,B. in diesem Beispiel sein: $R = \left\{
 \right\}$. Das würde bedeuten, dass $a$ in Relation zu $1$ steht, $b$ in Relation zu
 $2$ und $c$ in Relation zu $3$.
 
-\subsection{Äquivalenzrelationen}
+\subsubsection{Äquivalenzrelationen}
 
 Eine Äquivalenzrelation besitzt drei Eigenschaften:
 
@@ -2866,7 +2866,9 @@ Die Äquivalenzklassen bestehen in diesem Beispiel aus den Tieren je einer Art.
 Z.\,B. gehören Kuh und Bulle zur selben Äquivalenzklasse, Hahn und Huhn auch, aber
 Hahn und Huhn und Kuh und Bulle sind nicht die gleichen Äquivalenzklassen.
 
-\subsection{Halbordnungen}
+\subsection{Ordnungen}
+
+\subsubsection{Halbordnungen}
 
 Eine Halbordnung besteht auf einer Menge $M$, wenn für alle Elemente $x, y \in M$
 gilt:
@@ -2929,7 +2931,7 @@ des Hasse-Diagramms werden die Schleifen, die sich aus der Reflexivität ($aRa$ 
 in der Teilbarkeitsrelation $a$ teilt $a$, was für alle $a \in \mathbb{N}$ gilt) 
 ergeben, weggelassen.
 
-\subsection{Quasiordnungen}
+\subsubsection{Quasiordnungen}
 
 Quasiordnungen sind reflexive und transitive Ordnungen, die aber nicht symmetrisch 
 sein müssen (d.\,h. entweder symmetrisch, antisymmetrisch oder asymmetrisch). Jede
@@ -3078,6 +3080,29 @@ Für $z^n$ sind die Wurzeln: $\sqrt[n]{r_0} \cdot e^{i \cdot \frac{\phi}{n} + \f
 
 \subsection{Matrixrechnung}
 
+\subsubsection{Standardskalarprodukt}
+
+Das Standardskalarprodukt von zwei Vektoren bestimmt sich aus der Summe der jeweiligen Zeilen, die multipliziert werden. Man kann schreiben:
+
+\begin{equation}
+	A^{1\times m} \cdot B^{1 \times m} = \sum_{i = 1}^{m} A_i \cdot B_i.
+\end{equation}
+
+Ein Beispiel:
+
+\begin{equation}
+	\begin{pmatrix*}
+		a \\
+		b \\
+		c \\
+	\end{pmatrix*} \cdot 
+	\begin{pmatrix*}
+		d \\
+		e \\
+		f \\
+	\end{pmatrix*} = ab + be + cf.
+\end{equation}
+
 \subsubsection{Skalarmultiplikation}
 
 Matrizen werden skalar multipliziert, indem der Vorfaktor (hier $a$) an jeden einzelnen Wert
@@ -3142,459 +3167,7 @@ Beispiel:
 	\end{pmatrix*}
 \end{equation}
 
-\subsubsection{Die Zeilenstufenform}
-
-\label{zeilenstufenform}
-Jede Matrix kann durch Operationen auf sie in die Zeilenstufenform überführt werden. Dazu sind zwei
-Begriffe relevant:
-
-\begin{tabular}{|l|l|}
-	\hline
-	Begriff & Erklärung\\ \hline
-	Nullzeile & Eine Zeile, in der nur Nullen stehen\\
-	Zeilenführer & Erste Zahl in einer Zeile, die nicht $0$ ist\\
-	\hline
-\end{tabular}
-
-Die Zeilenführer habe ich in dieser Beispielmatrix \textcolor{green}{grün} eingefärbt, die 
-Nullzeilen \textcolor{red}{rot}.
-
-\begin{equation}
-	\begin{pmatrix*}
-		\textcolor{green}{1} & 0 & 1\\
-		\textcolor{green}{2} & 0 & 4\\
-		\textcolor{red}{0} & \textcolor{red}{0} & \textcolor{red}{0}\\
-	\end{pmatrix*}
-\end{equation}
-
-Ziel ist es, dass der Zeilenführer von oben nach unten betrachtet von links nach rechts wandert und
-eine \frq Treppe\flq\ entsteht\footnote{Mir hat es geholfen zu erkennen, dass die Treppe von Rechts nach
-Links geht und nicht von Links nach Rechts.}.
-Bei der Beispielmatrix erreicht man das mit 
-
-\begin{equation}
-	\begin{pmatrix*}
-		\textcolor{green}{1} & 0 & 1\\
-		\textcolor{green}{2} & 0 & 4\\
-		\textcolor{red}{0} & \textcolor{red}{0} & \textcolor{red}{0}\\
-	\end{pmatrix*} \xrightarrow{\ro{II} \rightarrow \ro{II} - 2\cdot \ro{I}} \begin{pmatrix*}
-		\textcolor{green}{1} & 0 & 1\\
-		0 & 0 & \textcolor{green}{2}\\
-		\textcolor{red}{0} & \textcolor{red}{0} & \textcolor{red}{0}\\
-	\end{pmatrix*}
-\end{equation}
-
-Legale Operationen sind dabei die Multiplikation mit Skalaren aus $\mathbb{R}$ und die Addition und Subtraktion von
-Zeilen aus der Matrix selbst miteinander (z.\,B. die Zweite Zeile von der ersten abziehen oder addieren, d.\,h. Komponente-für-Komponente
-durchgehen und voneinander abziehen oder addieren). Außerdem kann man die Zeilen beliebig vertauschen.
-
-\subsubsection{Lösung linearer Gleichungssysteme mit Matrizen}
-
-Ein lineares Gleichungssystem der Form 
-\begin{equation}
-	3x + 5y + z = 6
-\end{equation}
-
-\begin{equation}
-	12x + 5z - 7z = 5
-\end{equation}
-
-\begin{equation}
-	-x + y - 2z = -1
-\end{equation}
-kann mit einer erweiterten Koeffizientenmatrix dargestellt werden als:
-
-\begin{equation}
-	\left(
-	\begin{array}{ccc|c}
-		3 & 5 & 1 & 6\\
-		12 & 5 & -6 & 5\\
-		-1 & 1 & -2 & -1\\
-	\end{array}
-	\right)\begin{pmatrix*}
-		x\\
-		y\\
-		z\\
-	\end{pmatrix*}.
-\end{equation}
-
-Dadurch, dass man die Zeilenvektoren miteinander multipliziert und addiert und skalar multipliziert, kann man, wenn
-das Gleichungssystem lösbar ist, eine Einsermatrix der Form
-\begin{equation}
-	\left(
-	\begin{array}{ccc|c}
-		1 & 0 & 0 & a\\
-		0 & 1 & 0 & b\\
-		0 & 0 & 1 & c\\
-	\end{array}
-	\right).
-\end{equation}
-
-Dann steht dort quasi $x = a, y = b$ und $z = c$.
-
-\subsection{Matrixtransponierung}
-
-Beim Transponieren einer Matrix wird die erste Zeile zur ersten Spalte, die zweite Spalte zur zweiten Zeile usw.
-
-Beispiel:
-
-\begin{equation}
-	A^T = \begin{pmatrix*}
-		1 & 2\\
-		3 & 4\\
-		5 & 6\\
-	\end{pmatrix*}^T = \begin{pmatrix*}
-		1 & 3 & 5\\
-		2 & 4 & 6\\
-	\end{pmatrix*}.
-\end{equation}
-
-Allgemeine Rechenregeln:
-
-$$ (A^T)^T = A $$
-
-$$ A^T + B^T = (A + B)^T $$
-
-$$ (A \cdot B)^T = B^T \cdot A^T $$
-
-\subsection{Vektorräume und Untervektorräume}
-
-\paragraph{Allgemeine Definition.} Sei $K$ ein Körper, dann ist $(V, +, \langle k | k \in K\rangle)$ ein K-Vektorraum.
-Dieser besteht aus:
-\begin{itemize}
-	\item Einer Menge $V$, die ungleich der leeren Menge ist.
-	\item Einer Addition: $+: V\times V \rightarrow V$.
-	\item Einer Skalarmultiplikation $(k|k\in K): K\times V \rightarrow V$.
-\end{itemize}
-
-Beispiele für Vektorräume sind der allgemeine $K$-VR oder mit spezifischen Körpern
-der $\mathbb{R}$-Vr oder $\mathbb{C}$-VR.
-
-\subsubsection{Vektorraumaxiome}
-
-\begin{enumerate}
-	\item $\forall v_1, v_2 \in V$ ist $v_1 \times v_2$ ein eindeutig bestimmtes Element von $V$.
-	\item $v_1, v_2, v_3 \in V: v_1 + (v_2 + v_3) = (v_1 + v_2) + v_3$ (Assoziativ)
-	\item $v_1, v_2 \in V: v_1 + v_2 = v_2 + v_1$ (Kommutativ)
-	\item $\forall v \in V: \exists \vec{0} \in V: v = \vec{0} + v = v + \vec{0}$ (Nullvektor als neutrales Element der Addition)
-	\item $\forall v \in V: \exists -v \in V: v + (-v) = (-v) + v = \vec{0}$ (Jedes Element hat ein additives Inverses)
-	\item $\forall k \in K: \forall v \in V: \exists kv \in V$
-	\item $\forall v \in V: \vec{1}\cdot v = v$ (Einsvektor als neutrales Element der Multiplikation)
-	\item $\forall k_1, k_2 \in K: \forall v \in V: (k_1k_2)v = k_2(k_1v)$ (Assoziativität der Multiplikation)
-	\item $\forall k \in K: \forall v_1, v_2 \in V: (k_1 + k_2) \times v = vk_1 + vk_2$
-	\item $\forall k \in K: \forall v_1, v_2 \in V: k(v_1 + v_2) = kv_1 + kv_2$
-\end{enumerate}
-
-\subsubsection{Bestimmen, ob $U$ ein Untervektorraum von $V$ ist}
-
-Um zu bestimmen, ob $U$ ein Untervektorraum von $V$ ist, muss man schauen, ob der Nullvektor in diesem Vektorraum ist.
-Das heißt, das Gleichungssystem
-
-\begin{equation}
-	U\times\vec{x} = \vec{0} =
-	\begin{pmatrix*}
-		a_1 & b_1 \\
-		a_2 & b_2 \\
-		a_3 & b_3 \\
-	\end{pmatrix*} \times \begin{pmatrix*}
-		x_1 \\
-		x_2 \\
-	\end{pmatrix*} = \begin{pmatrix*}
-		0 \\
-		0 \\
-		0 \\
-	\end{pmatrix*}
-\end{equation}
-muss Lösungen haben. Hat es keine, ist es kein Untervektorraum.
-
-Hat es welche, muss weiterhin überprüft werden, ob man durch Addition oder Multiplikation aus dem Vektorraum herauskommt. Sollte
-z.\,B. die Beschränkung sein, dass $a_n \leq 1 \wedge b_n \leq 1$, dann käme man mit einer Multiplikation, die $a$ oder $b$
-größer $1$ machen würde, aus dem Vektorraum hinaus und $U$ wäre kein Untervektorraum.
-
-Jeder Untervektorraum ist selbst wieder ein Vektorraum. Die anderen Axiome (z.\,B. die Assoziativität der Multiplikation) müssen
-nicht überprüft werden. Diese werden vom Übervektorraum \frq geerbt\flq.
-
-\subsection{Lineare Abhängigkeit}
-
-\label{lineareabhaengigkeit}
-
-Zwei Vektoren sind linear abhängig, wenn der eine ein Vielfaches des Anderen ist. So ist z.\,B.
-
-\begin{equation}
-	\begin{pmatrix*}
-		1\\
-		2\\
-		3\\
-	\end{pmatrix*} = \frac{1}{2} \times \begin{pmatrix*}
-		2\\
-		4\\
-		6\\
-	\end{pmatrix*}.
-\end{equation}
-
-Damit sind diese beiden Vektoren Vielfache voneinander und linear abhängig.
-
-Die Vektoren $\begin{pmatrix*}
-	0\\
-	1\\
-\end{pmatrix*}$ und $\begin{pmatrix*}
-	1\\
-	0\\
-\end{pmatrix*}$ können beispielsweise nicht linear abhängig sein, denn die $0$ lässt sich durch keine Multiplikation
-zu einer $1$ machen.
-
-Ein effizienter Algorithmus zum Herausfinden, ob eine Menge von Vektoren Vielfache voneinander sind, wäre es, 
-die einzelnen Vektoren $\vec{v_1}, \vec{v_2}, \dots, \vec{v_n}$ zu ordnen und anzufangen mit $\vec{v_1}$ und diesen
-mit jedem $\vec{v_2}, \dots, \vec{v_n}$ zu vergleichen. Ist er ein Vielfaches von irgendeinem dieser Vektoren,
-streichen wir ihn und brechen die Betrachtung für den ersten Vektor ab.
-Dann \frq verschieben\flq\ wir das Raster und fangen mit $\vec{v_2}$ an und vergleichen ihn mit $\vec{v_3}, \dots, \vec{v_n}$,
-streichen ihn raus, wenn er ein Vielfaches von einem dieser Vektoren ist und wiederholen dies, bis wir alle Vektoren einmal
-miteinander verglichen haben.
-
-Die nun nicht-durchgestrichenen Vektoren sind keine Vielfache voneinander.
-
-\subsection{Span bestimmen}
-
-Gegeben sei 
-\begin{equation}
-	U = \left\{\begin{pmatrix*}
-		a + 3b - 8c \\
-		a - b + 4c \\
-		2a -b + 5c\\
-	\end{pmatrix*}\middle| a, b, c \in \mathbb{R} \right\}.
-\end{equation}
-
-Diese lässt sich umschreiben zu:
-
-\begin{equation}
-	U = \left\{\begin{pmatrix*}
-		a \\
-		a \\
-		2a \\
-	\end{pmatrix*} + \begin{pmatrix*}
-		3b \\
-		-b \\
-		-b \\
-	\end{pmatrix*}+ \begin{pmatrix*}
-		-8c \\
-		4c \\
-		5c \\
-	\end{pmatrix*}
-	\middle| a, b, c \in \mathbb{R} \right\}.
-\end{equation}
-
-Nun klammern wir die Parameter aus:
-
-\begin{equation}
-	U = \left\{a\times \begin{pmatrix*}
-		1 \\
-		1 \\
-		2 \\
-	\end{pmatrix*} + b\times \begin{pmatrix*}
-		3 \\
-		-1 \\
-		-1 \\
-	\end{pmatrix*}+ c\times \begin{pmatrix*}
-		-8 \\
-		4 \\
-		5 \\
-	\end{pmatrix*}
-	\middle| a, b, c \in \mathbb{R} \right\}.
-\end{equation}
-
-Lassen wir nun die Parameter weg, erhalten wir fast den Span:
-
-\begin{equation}
-	\textrm{Span}_\mathbb{R}(U) = \textrm{Span}_\mathbb{R}\left(\left\{\begin{pmatrix*}
-		1 \\
-		1 \\
-		2 \\
-	\end{pmatrix*}, \begin{pmatrix*}
-		3 \\
-		-1 \\
-		-1 \\
-	\end{pmatrix*}, \begin{pmatrix*}
-		-8 \\
-		4 \\
-		5 \\
-	\end{pmatrix*}
-	\right\}\right).
-\end{equation}
-
-Der einzige Schritt, den wir jetzt noch checken müssen ist, ob die Parameter linear abhängig sind oder nicht (vgl. auch \fullref{lineareabhaengigkeit}).
-Aus der Menge der untereinander linear abhängigen Parameter muss dann noch einer ausgewählt werden (welcher ist egal, denn sie sind alle \frq inhaltlich\flq\ gleich) und
-die anderen im Span verworfen werden.
-
-\subsection{Die Dimension einer Matrix}
-
-\label{dimension}
-
-Die Dimension einer Matrix bestimmt sich aus der Anzahl der linear unabhängigen Spalten der Matrix. Die Dimension einer Matrix bestimmt,
-in wie vielen räumlichen Dimensionen sich ein Vektor, der ein Vielfaches der Matrix ist, ausbreiten kann.
-
-Beispiel:
-
-\begin{equation}
-	U = \begin{pmatrix*}
-		1 & 2 & 1 \\
-		1 & 2 & -1 \\
-		2 & 4 & 10 \\
-	\end{pmatrix*} = \left\{\begin{pmatrix*}
-		\begin{pmatrix*}
-			1\\
-			1\\
-			2\\
-		\end{pmatrix*} +
-		2\times \begin{pmatrix*}
-			1\\
-			1\\
-			2\\
-		\end{pmatrix*} +
-		\begin{pmatrix*}
-			1\\
-			-1\\
-			10\\
-		\end{pmatrix*}
-	\end{pmatrix*}\right\}.
-\end{equation}
-
-Da der erste und zweite Vektor linear abhängig sind, fällt einer der beiden bei der Dimensionsbetrachtung weg. Daher gilt: $\textrm{Dim}\left(U\right) = 2$.
-Wenn die Spaltenvektoren keien Vielfachen sind, dann müssen auch noch die Zeilenvektoren überprüft werden.
-
-\subsection{Der Rang einer Matrix}
-
-Der Rang bezeichnet die Anzahl der unabhängigen Zeilen- und Spaltenvektoren einer Matrix.
-
-Die Matrix 
-\begin{equation}
-	A = \begin{pmatrix*}
-		1 & 3 & -1\\
-		2 & 6 & -2\\
-		5 & 23 & 0\\
-	\end{pmatrix*}, A \in \mathbb{N}^{3\times 3}
-\end{equation}
-hat die Zeilenvektoren
-\begin{equation}
-	\begin{pmatrix*}
-		1 & 3 & -1\\
-	\end{pmatrix*}, 
-	\begin{pmatrix*}
-		2 & 6 & -2\\
-	\end{pmatrix*},
-	\begin{pmatrix*}
-		5 & 23 & 0\\
-	\end{pmatrix*}
-\end{equation}
-und die Spaltenvektoren
-\begin{equation}
-	\begin{pmatrix*}
-		1\\
-		2\\
-		5\\
-	\end{pmatrix*},
-	\begin{pmatrix*}
-		3\\
-		6\\
-		23\\
-	\end{pmatrix*},
-	\begin{pmatrix*}
-		-1\\
-		-2\\
-		0\\
-	\end{pmatrix*}.
-\end{equation}
-
-Als erstes müssen wir versuchen, die Matrix in die Zeilenstufenform zu bringen (vgl. \fullref{zeilenstufenform}.
-
-\begin{equation}
-	\begin{pmatrix*}
-		1 & 3 & -1\\
-		2 & 6 & -2\\
-		5 & 23 & 0\\
-	\end{pmatrix*} \xrightarrow{\ro{II} \rightarrow 2\cdot \ro{I}} \begin{pmatrix*}
-		1 & 3 & -1\\
-		0 & 0 & 0\\
-		5 & 23 & 0\\
-	\end{pmatrix*} \xrightarrow{\ro{II} \leftrightarrow \ro{III}} \begin{pmatrix*}
-		1 & 3 & -1\\
-		5 & 23 & 0\\
-		0 & 0 & 0\\
-	\end{pmatrix*}
-\end{equation}
-
-Um die Zeilenstufenform zu vollenden, müssen wir nun nur noch den Zeilenführer der zweiten Zeile verschieben:
-
-\begin{equation}
-	\begin{pmatrix*}
-		1 & 3 & -1\\
-		5 & 23 & 0\\
-		0 & 0 & 0\\
-	\end{pmatrix*} \xrightarrow{\ro{II} \rightarrow \ro{II} - 5\cdot I} \begin{pmatrix*}
-		1 & 3 & -1\\
-		0 & 8 & 5\\
-		0 & 0 & 0\\
-	\end{pmatrix*}
-\end{equation}
-
-und wir haben die Zeilenstufenform. Der Rang der Matrix ist die Anzahl von Zeilen, die nicht ausschließlich aus 0 bestehen.
-Das heißt: $\textrm{rang}(A) = 2$, weil von den drei Zeilen zwei nicht 0 sind.
-
-\subsection{Der Kern einer Matrix}
-
-Der Kern einer Matrix ist dadurch bestimmt, dass die Matrix multipliziert mit ihrem Kern zum Nullvektor wird. Das heißt abstrakt:
-$\textrm{Ker}(A^{n\times m}) = \left\{x \in \mathbb{R}^{n\times 1} \middle| Ax = \vec{0}\right\}$.
-
-Oder im konkreten Beispiel:
-
-\begin{equation}
-	U = \begin{pmatrix*}
-		1 & 2 & 1 \\
-		1 & 0 & -1 \\
-		2 & 1 & 10 \\
-	\end{pmatrix*},
-\end{equation}
-
-\begin{equation}
-	\textrm{Ker}\left(U\right) \Rightarrow
-	\begin{pmatrix*}
-		1 & 2 & 1 \\
-		1 & 0 & -1 \\
-		2 & 1 & 10 \\
-	\end{pmatrix*} \times \begin{pmatrix*}
-		x_1 \\
-		x_2 \\
-		x_3 \\
-	\end{pmatrix*} =
-	\begin{pmatrix*}
-		0\\
-		0\\
-		0\\
-	\end{pmatrix*}
-\end{equation}
-
-Das impliziert die Gleichungssysteme:
-
-\begin{equation}
-	x_1 + 2x_2 + x_3 = 0
-\end{equation}
-\begin{equation}
-	x_1 + \phantom{0x_2} - x_3= 0
-\end{equation}
-\begin{equation}
-	2x_1 + x_2 + 10x_3 = 0
-\end{equation}
-
-Daraus ergibt sich, dass $x_1 = x_2 = x_3 = 0$. Das heißt, $\textrm{Ker}(U) = \begin{pmatrix*} 0\\
-	0\\
-	0\\
-\end{pmatrix*}$. (Es ist der Nullvektor, weil alle Zeilen voneinander unabhängig waren; bei abhängigen Zeilen
-gäbe es etwas Anderes als den Nullvektor.)
-
-Die Dimension (vgl. \fullref{dimension}) des Kerns bestimmt sich durch die Anzahl linear unabhängiger Werte in ihr, d.\,h. für dieses 
-Beispiel $\textrm{dim}\left(\textrm{Ker}\left(U\right)\right) = 1$, da alle Werte 0 sind und damit linear
-abhängig voneinander.
-
-\subsection{Determinante}
+\subsubsection{Determinante}
 
 \label{determinante}
 
@@ -3702,59 +3275,148 @@ $\det\begin{pmatrix*}
 	c & d \\
 \end{pmatrix*} = ad - cb$ berechnet werden können.
 
-\subsubsection{Multilinearität von Matrizen}
 
-Gegeben sei die Matrix $M \in \mathbb{K}^{n\times n}$ mit:
+
+\subsubsection{Die Zeilenstufenform}
+
+\label{zeilenstufenform}
+Jede Matrix kann durch Operationen auf sie in die Zeilenstufenform überführt werden. Dazu sind zwei
+Begriffe relevant:
+
+\begin{tabular}{|l|l|}
+	\hline
+	Begriff & Erklärung\\ \hline
+	Nullzeile & Eine Zeile, in der nur Nullen stehen\\
+	Zeilenführer & Erste Zahl in einer Zeile, die nicht $0$ ist\\
+	\hline
+\end{tabular}
+
+Die Zeilenführer habe ich in dieser Beispielmatrix \textcolor{green}{grün} eingefärbt, die 
+Nullzeilen \textcolor{red}{rot}.
 
 \begin{equation}
 	\begin{pmatrix*}
-		a & b & c \\
-		xd & xe & xf \\
-		h & i & j \\
+		\textcolor{green}{1} & 0 & 1\\
+		\textcolor{green}{2} & 0 & 4\\
+		\textcolor{red}{0} & \textcolor{red}{0} & \textcolor{red}{0}\\
 	\end{pmatrix*}
 \end{equation}
 
-und die Matrix $M'$ ohne den Vorfaktor $x$:
+Ziel ist es, dass der Zeilenführer von oben nach unten betrachtet von links nach rechts wandert und
+eine \frq Treppe\flq\ entsteht\footnote{Mir hat es geholfen zu erkennen, dass die Treppe von Rechts nach
+Links geht und nicht von Links nach Rechts.}.
+Bei der Beispielmatrix erreicht man das mit 
 
 \begin{equation}
 	\begin{pmatrix*}
-		a & b & c \\
-		d & e & f \\
-		h & i & j \\
+		\textcolor{green}{1} & 0 & 1\\
+		\textcolor{green}{2} & 0 & 4\\
+		\textcolor{red}{0} & \textcolor{red}{0} & \textcolor{red}{0}\\
+	\end{pmatrix*} \xrightarrow{\ro{II} \rightarrow \ro{II} - 2\cdot \ro{I}} \begin{pmatrix*}
+		\textcolor{green}{1} & 0 & 1\\
+		0 & 0 & \textcolor{green}{2}\\
+		\textcolor{red}{0} & \textcolor{red}{0} & \textcolor{red}{0}\\
 	\end{pmatrix*}
 \end{equation}
 
-Dann ist die Determinante $\det(M) = x \det(M')$.
+Legale Operationen sind dabei die Multiplikation mit Skalaren aus $\mathbb{R}$ und die Addition und Subtraktion von
+Zeilen aus der Matrix selbst miteinander (z.\,B. die Zweite Zeile von der ersten abziehen oder addieren, d.\,h. Komponente-für-Komponente
+durchgehen und voneinander abziehen oder addieren). Außerdem kann man die Zeilen beliebig vertauschen.
 
-Gleiches gilt für Spalten. So ist
+\subsubsection{Lösung linearer Gleichungssysteme mit Matrizen}
+
+Ein lineares Gleichungssystem der Form 
+\begin{equation}
+	3x + 5y + z = 6
+\end{equation}
 
 \begin{equation}
-	\det\begin{pmatrix*}
-		a & xb & c \\
-		d & xe & f \\
-		h & xi & j \\
-	\end{pmatrix*} = x\det\begin{pmatrix*}
-		a & b & c \\
-		d & e & f \\
-		h & i & j \\
+	12x + 5z - 7z = 5
+\end{equation}
+
+\begin{equation}
+	-x + y - 2z = -1
+\end{equation}
+kann mit einer erweiterten Koeffizientenmatrix dargestellt werden als:
+
+\begin{equation}
+	\left(
+	\begin{array}{ccc|c}
+		3 & 5 & 1 & 6\\
+		12 & 5 & -6 & 5\\
+		-1 & 1 & -2 & -1\\
+	\end{array}
+	\right)\begin{pmatrix*}
+		x\\
+		y\\
+		z\\
 	\end{pmatrix*}.
 \end{equation}
 
-Ist ein Vorfaktor in jeder Zeile, wie z.\,B. ein \frq -\flq, dann kann man ihn auch \frq herausziehen\flq:
+Dadurch, dass man die Zeilenvektoren miteinander multipliziert und addiert und skalar multipliziert, kann man, wenn
+das Gleichungssystem lösbar ist, eine Einsermatrix der Form
+\begin{equation}
+	\left(
+	\begin{array}{ccc|c}
+		1 & 0 & 0 & a\\
+		0 & 1 & 0 & b\\
+		0 & 0 & 1 & c\\
+	\end{array}
+	\right).
+\end{equation}
+
+Dann steht dort quasi $x = a, y = b$ und $z = c$.
+
+\subsubsection{Matrixtransponierung}
+
+Beim Transponieren einer Matrix wird die erste Zeile zur ersten Spalte, die zweite Spalte zur zweiten Zeile usw.
+
+Beispiel:
 
 \begin{equation}
-	\det(-M) = \det\begin{pmatrix*}
-		-a & -b & -c \\
-		-d & -e & -f \\
-		-h & -i & -j \\
-	\end{pmatrix*} = (-1)^3 \det\begin{pmatrix*}
-		a & b & c \\
-		d & e & f \\
-		h & i & j \\
+	A^T = \begin{pmatrix*}
+		1 & 2\\
+		3 & 4\\
+		5 & 6\\
+	\end{pmatrix*}^T = \begin{pmatrix*}
+		1 & 3 & 5\\
+		2 & 4 & 6\\
 	\end{pmatrix*}.
 \end{equation}
 
-\subsection{Invertieren einer Matrix}
+Allgemeine Rechenregeln:
+
+$$ (A^T)^T = A $$
+
+$$ A^T + B^T = (A + B)^T $$
+
+$$ (A \cdot B)^T = B^T \cdot A^T $$
+
+\subsubsection{Spur}
+
+Die Spur einer Matrix $K^{n\times n}$ ist die Summe ihrer Hauptdiagonalelemente.
+
+Beispiel:
+
+\begin{equation}
+	\mathrm{Spur}\begin{pmatrix*}
+		\textcolor{red}{a} & b & c & d \\
+		e & \textcolor{red}{f} & h & h \\
+		i & j & \textcolor{red}{k} & l \\
+		m & n & o & \textcolor{red}{p} \\
+	\end{pmatrix*} = a + f + k + p.
+\end{equation}
+
+Wenn die Spur einer Matrix $0$ ist, dann gilt die Matrix als spurfrei. 
+
+Allgemein gilt: 
+
+\begin{itemize}
+	\item Die Spur einer Matrix ist gleich der Summe ihrer Eigenwerte.
+	\item $\mathrm{Spur}(A) = \mathrm{Spur}(A^T)$
+\end{itemize}
+
+\subsubsection{Invertieren einer Matrix}
 
 \label{invertieren}
 
@@ -3855,29 +3517,404 @@ Aus diesem Verfahren ist offensichtlich, dass sich nicht alle Matrizen invertier
 dann kann man die Zeilen so oft und viel miteinander verrechnen wie man will und man kommt nie zum Ende. Wenn alle Zeilen
 linear abhängig sind, dann ist die Matrix nicht invertierbar, genauso, wenn die Determinante gleich 0 ist.
 
-\subsection{Spur}
+\subsubsection{Die Dimension einer Matrix}
 
-Die Spur einer Matrix $K^{n\times n}$ ist die Summe ihrer Hauptdiagonalelemente.
+\label{dimension}
+
+Die Dimension einer Matrix bestimmt sich aus der Anzahl der linear unabhängigen Spalten der Matrix. Die Dimension einer Matrix bestimmt,
+in wie vielen räumlichen Dimensionen sich ein Vektor, der ein Vielfaches der Matrix ist, ausbreiten kann.
 
 Beispiel:
 
 \begin{equation}
-	\mathrm{Spur}\begin{pmatrix*}
-		\textcolor{red}{a} & b & c & d \\
-		e & \textcolor{red}{f} & h & h \\
-		i & j & \textcolor{red}{k} & l \\
-		m & n & o & \textcolor{red}{p} \\
-	\end{pmatrix*} = a + f + k + p.
+	U = \begin{pmatrix*}
+		1 & 2 & 1 \\
+		1 & 2 & -1 \\
+		2 & 4 & 10 \\
+	\end{pmatrix*} = \left\{\begin{pmatrix*}
+		\begin{pmatrix*}
+			1\\
+			1\\
+			2\\
+		\end{pmatrix*} +
+		2\times \begin{pmatrix*}
+			1\\
+			1\\
+			2\\
+		\end{pmatrix*} +
+		\begin{pmatrix*}
+			1\\
+			-1\\
+			10\\
+		\end{pmatrix*}
+	\end{pmatrix*}\right\}.
 \end{equation}
 
-Wenn die Spur einer Matrix $0$ ist, dann gilt die Matrix als spurfrei. 
+Da der erste und zweite Vektor linear abhängig sind, fällt einer der beiden bei der Dimensionsbetrachtung weg. Daher gilt: $\textrm{Dim}\left(U\right) = 2$.
+Wenn die Spaltenvektoren keien Vielfachen sind, dann müssen auch noch die Zeilenvektoren überprüft werden.
 
-Allgemein gilt: 
+\subsubsection{Der Rang einer Matrix}
 
+Der Rang bezeichnet die Anzahl der unabhängigen Zeilen- und Spaltenvektoren einer Matrix.
+
+Die Matrix 
+\begin{equation}
+	A = \begin{pmatrix*}
+		1 & 3 & -1\\
+		2 & 6 & -2\\
+		5 & 23 & 0\\
+	\end{pmatrix*}, A \in \mathbb{N}^{3\times 3}
+\end{equation}
+hat die Zeilenvektoren
+\begin{equation}
+	\begin{pmatrix*}
+		1 & 3 & -1\\
+	\end{pmatrix*}, 
+	\begin{pmatrix*}
+		2 & 6 & -2\\
+	\end{pmatrix*},
+	\begin{pmatrix*}
+		5 & 23 & 0\\
+	\end{pmatrix*}
+\end{equation}
+und die Spaltenvektoren
+\begin{equation}
+	\begin{pmatrix*}
+		1\\
+		2\\
+		5\\
+	\end{pmatrix*},
+	\begin{pmatrix*}
+		3\\
+		6\\
+		23\\
+	\end{pmatrix*},
+	\begin{pmatrix*}
+		-1\\
+		-2\\
+		0\\
+	\end{pmatrix*}.
+\end{equation}
+
+Als erstes müssen wir versuchen, die Matrix in die Zeilenstufenform zu bringen (vgl. \fullref{zeilenstufenform}.
+
+\begin{equation}
+	\begin{pmatrix*}
+		1 & 3 & -1\\
+		2 & 6 & -2\\
+		5 & 23 & 0\\
+	\end{pmatrix*} \xrightarrow{\ro{II} \rightarrow 2\cdot \ro{I}} \begin{pmatrix*}
+		1 & 3 & -1\\
+		0 & 0 & 0\\
+		5 & 23 & 0\\
+	\end{pmatrix*} \xrightarrow{\ro{II} \leftrightarrow \ro{III}} \begin{pmatrix*}
+		1 & 3 & -1\\
+		5 & 23 & 0\\
+		0 & 0 & 0\\
+	\end{pmatrix*}
+\end{equation}
+
+Um die Zeilenstufenform zu vollenden, müssen wir nun nur noch den Zeilenführer der zweiten Zeile verschieben:
+
+\begin{equation}
+	\begin{pmatrix*}
+		1 & 3 & -1\\
+		5 & 23 & 0\\
+		0 & 0 & 0\\
+	\end{pmatrix*} \xrightarrow{\ro{II} \rightarrow \ro{II} - 5\cdot I} \begin{pmatrix*}
+		1 & 3 & -1\\
+		0 & 8 & 5\\
+		0 & 0 & 0\\
+	\end{pmatrix*}
+\end{equation}
+
+und wir haben die Zeilenstufenform. Der Rang der Matrix ist die Anzahl von Zeilen, die nicht ausschließlich aus 0 bestehen.
+Das heißt: $\textrm{rang}(A) = 2$, weil von den drei Zeilen zwei nicht 0 sind.
+
+\subsubsection{Der Kern einer Matrix}
+
+Der Kern einer Matrix ist dadurch bestimmt, dass die Matrix multipliziert mit ihrem Kern zum Nullvektor wird. Das heißt abstrakt:
+$\textrm{Ker}(A^{n\times m}) = \left\{x \in \mathbb{R}^{n\times 1} \middle| Ax = \vec{0}\right\}$.
+
+Oder im konkreten Beispiel:
+
+\begin{equation}
+	U = \begin{pmatrix*}
+		1 & 2 & 1 \\
+		1 & 0 & -1 \\
+		2 & 1 & 10 \\
+	\end{pmatrix*},
+\end{equation}
+
+\begin{equation}
+	\textrm{Ker}\left(U\right) \Rightarrow
+	\begin{pmatrix*}
+		1 & 2 & 1 \\
+		1 & 0 & -1 \\
+		2 & 1 & 10 \\
+	\end{pmatrix*} \times \begin{pmatrix*}
+		x_1 \\
+		x_2 \\
+		x_3 \\
+	\end{pmatrix*} =
+	\begin{pmatrix*}
+		0\\
+		0\\
+		0\\
+	\end{pmatrix*}
+\end{equation}
+
+Das impliziert die Gleichungssysteme:
+
+\begin{equation}
+	x_1 + 2x_2 + x_3 = 0
+\end{equation}
+\begin{equation}
+	x_1 + \phantom{0x_2} - x_3= 0
+\end{equation}
+\begin{equation}
+	2x_1 + x_2 + 10x_3 = 0
+\end{equation}
+
+Daraus ergibt sich, dass $x_1 = x_2 = x_3 = 0$. Das heißt, $\textrm{Ker}(U) = \begin{pmatrix*} 0\\
+	0\\
+	0\\
+\end{pmatrix*}$. (Es ist der Nullvektor, weil alle Zeilen voneinander unabhängig waren; bei abhängigen Zeilen
+gäbe es etwas Anderes als den Nullvektor.)
+
+Die Dimension (vgl. \fullref{dimension}) des Kerns bestimmt sich durch die Anzahl linear unabhängiger Werte in ihr, d.\,h. für dieses 
+Beispiel $\textrm{dim}\left(\textrm{Ker}\left(U\right)\right) = 1$, da alle Werte 0 sind und damit linear
+abhängig voneinander.
+
+\subsubsection{Multilinearität von Matrizen}
+
+Gegeben sei die Matrix $M \in \mathbb{K}^{n\times n}$ mit:
+
+\begin{equation}
+	\begin{pmatrix*}
+		a & b & c \\
+		xd & xe & xf \\
+		h & i & j \\
+	\end{pmatrix*}
+\end{equation}
+
+und die Matrix $M'$ ohne den Vorfaktor $x$:
+
+\begin{equation}
+	\begin{pmatrix*}
+		a & b & c \\
+		d & e & f \\
+		h & i & j \\
+	\end{pmatrix*}
+\end{equation}
+
+Dann ist die Determinante $\det(M) = x \det(M')$.
+
+Gleiches gilt für Spalten. So ist
+
+\begin{equation}
+	\det\begin{pmatrix*}
+		a & xb & c \\
+		d & xe & f \\
+		h & xi & j \\
+	\end{pmatrix*} = x\det\begin{pmatrix*}
+		a & b & c \\
+		d & e & f \\
+		h & i & j \\
+	\end{pmatrix*}.
+\end{equation}
+
+Ist ein Vorfaktor in jeder Zeile, wie z.\,B. ein \frq -\flq, dann kann man ihn auch \frq herausziehen\flq:
+
+\begin{equation}
+	\det(-M) = \det\begin{pmatrix*}
+		-a & -b & -c \\
+		-d & -e & -f \\
+		-h & -i & -j \\
+	\end{pmatrix*} = (-1)^3 \det\begin{pmatrix*}
+		a & b & c \\
+		d & e & f \\
+		h & i & j \\
+	\end{pmatrix*}.
+\end{equation}
+
+\subsubsection{Schnell Potenzen von Matrizen berechnen}
+
+\TODO
+
+\begin{equation}
+	A = SDS^{-1}
+\end{equation}
+
+
+\subsection{Vektorräume und Untervektorräume}
+
+\paragraph{Allgemeine Definition.} Sei $K$ ein Körper, dann ist $(V, +, \langle k | k \in K\rangle)$ ein K-Vektorraum.
+Dieser besteht aus:
 \begin{itemize}
-	\item Die Spur einer Matrix ist gleich der Summe ihrer Eigenwerte.
-	\item $\mathrm{Spur}(A) = \mathrm{Spur}(A^T)$
+	\item Einer Menge $V$, die ungleich der leeren Menge ist.
+	\item Einer Addition: $+: V\times V \rightarrow V$.
+	\item Einer Skalarmultiplikation $(k|k\in K): K\times V \rightarrow V$.
 \end{itemize}
+
+Beispiele für Vektorräume sind der allgemeine $K$-VR oder mit spezifischen Körpern
+der $\mathbb{R}$-Vr oder $\mathbb{C}$-VR.
+
+\subsubsection{Vektorraumaxiome}
+
+\begin{enumerate}
+	\item $\forall v_1, v_2 \in V$ ist $v_1 \times v_2$ ein eindeutig bestimmtes Element von $V$.
+	\item $v_1, v_2, v_3 \in V: v_1 + (v_2 + v_3) = (v_1 + v_2) + v_3$ (Assoziativ)
+	\item $v_1, v_2 \in V: v_1 + v_2 = v_2 + v_1$ (Kommutativ)
+	\item $\forall v \in V: \exists \vec{0} \in V: v = \vec{0} + v = v + \vec{0}$ (Nullvektor als neutrales Element der Addition)
+	\item $\forall v \in V: \exists -v \in V: v + (-v) = (-v) + v = \vec{0}$ (Jedes Element hat ein additives Inverses)
+	\item $\forall k \in K: \forall v \in V: \exists kv \in V$
+	\item $\forall v \in V: \vec{1}\cdot v = v$ (Einsvektor als neutrales Element der Multiplikation)
+	\item $\forall k_1, k_2 \in K: \forall v \in V: (k_1k_2)v = k_2(k_1v)$ (Assoziativität der Multiplikation)
+	\item $\forall k \in K: \forall v_1, v_2 \in V: (k_1 + k_2) \times v = vk_1 + vk_2$
+	\item $\forall k \in K: \forall v_1, v_2 \in V: k(v_1 + v_2) = kv_1 + kv_2$
+\end{enumerate}
+
+\subsubsection{Bestimmen, ob $U$ ein Untervektorraum von $V$ ist}
+
+Um zu bestimmen, ob $U$ ein Untervektorraum von $V$ ist, muss man schauen, ob der Nullvektor in diesem Vektorraum ist.
+Das heißt, das Gleichungssystem
+
+\begin{equation}
+	U\times\vec{x} = \vec{0} =
+	\begin{pmatrix*}
+		a_1 & b_1 \\
+		a_2 & b_2 \\
+		a_3 & b_3 \\
+	\end{pmatrix*} \times \begin{pmatrix*}
+		x_1 \\
+		x_2 \\
+	\end{pmatrix*} = \begin{pmatrix*}
+		0 \\
+		0 \\
+		0 \\
+	\end{pmatrix*}
+\end{equation}
+muss Lösungen haben. Hat es keine, ist es kein Untervektorraum.
+
+Hat es welche, muss weiterhin überprüft werden, ob man durch Addition oder Multiplikation aus dem Vektorraum herauskommt. Sollte
+z.\,B. die Beschränkung sein, dass $a_n \leq 1 \wedge b_n \leq 1$, dann käme man mit einer Multiplikation, die $a$ oder $b$
+größer $1$ machen würde, aus dem Vektorraum hinaus und $U$ wäre kein Untervektorraum.
+
+Jeder Untervektorraum ist selbst wieder ein Vektorraum. Die anderen Axiome (z.\,B. die Assoziativität der Multiplikation) müssen
+nicht überprüft werden. Diese werden vom Übervektorraum \frq geerbt\flq.
+
+\subsubsection{Lineare Abhängigkeit}
+
+\label{lineareabhaengigkeit}
+
+Zwei Vektoren sind linear abhängig, wenn der eine ein Vielfaches des Anderen ist. So ist z.\,B.
+
+\begin{equation}
+	\begin{pmatrix*}
+		1\\
+		2\\
+		3\\
+	\end{pmatrix*} = \frac{1}{2} \times \begin{pmatrix*}
+		2\\
+		4\\
+		6\\
+	\end{pmatrix*}.
+\end{equation}
+
+Damit sind diese beiden Vektoren Vielfache voneinander und linear abhängig.
+
+Die Vektoren $\begin{pmatrix*}
+	0\\
+	1\\
+\end{pmatrix*}$ und $\begin{pmatrix*}
+	1\\
+	0\\
+\end{pmatrix*}$ können beispielsweise nicht linear abhängig sein, denn die $0$ lässt sich durch keine Multiplikation
+zu einer $1$ machen.
+
+Ein effizienter Algorithmus zum Herausfinden, ob eine Menge von Vektoren Vielfache voneinander sind, wäre es, 
+die einzelnen Vektoren $\vec{v_1}, \vec{v_2}, \dots, \vec{v_n}$ zu ordnen und anzufangen mit $\vec{v_1}$ und diesen
+mit jedem $\vec{v_2}, \dots, \vec{v_n}$ zu vergleichen. Ist er ein Vielfaches von irgendeinem dieser Vektoren,
+streichen wir ihn und brechen die Betrachtung für den ersten Vektor ab.
+Dann \frq verschieben\flq\ wir das Raster und fangen mit $\vec{v_2}$ an und vergleichen ihn mit $\vec{v_3}, \dots, \vec{v_n}$,
+streichen ihn raus, wenn er ein Vielfaches von einem dieser Vektoren ist und wiederholen dies, bis wir alle Vektoren einmal
+miteinander verglichen haben.
+
+Die nun nicht-durchgestrichenen Vektoren sind keine Vielfache voneinander.
+
+\subsubsection{Span bestimmen}
+
+Gegeben sei 
+\begin{equation}
+	U = \left\{\begin{pmatrix*}
+		a + 3b - 8c \\
+		a - b + 4c \\
+		2a -b + 5c\\
+	\end{pmatrix*}\middle| a, b, c \in \mathbb{R} \right\}.
+\end{equation}
+
+Diese lässt sich umschreiben zu:
+
+\begin{equation}
+	U = \left\{\begin{pmatrix*}
+		a \\
+		a \\
+		2a \\
+	\end{pmatrix*} + \begin{pmatrix*}
+		3b \\
+		-b \\
+		-b \\
+	\end{pmatrix*}+ \begin{pmatrix*}
+		-8c \\
+		4c \\
+		5c \\
+	\end{pmatrix*}
+	\middle| a, b, c \in \mathbb{R} \right\}.
+\end{equation}
+
+Nun klammern wir die Parameter aus:
+
+\begin{equation}
+	U = \left\{a\times \begin{pmatrix*}
+		1 \\
+		1 \\
+		2 \\
+	\end{pmatrix*} + b\times \begin{pmatrix*}
+		3 \\
+		-1 \\
+		-1 \\
+	\end{pmatrix*}+ c\times \begin{pmatrix*}
+		-8 \\
+		4 \\
+		5 \\
+	\end{pmatrix*}
+	\middle| a, b, c \in \mathbb{R} \right\}.
+\end{equation}
+
+Lassen wir nun die Parameter weg, erhalten wir fast den Span:
+
+\begin{equation}
+	\textrm{Span}_\mathbb{R}(U) = \textrm{Span}_\mathbb{R}\left(\left\{\begin{pmatrix*}
+		1 \\
+		1 \\
+		2 \\
+	\end{pmatrix*}, \begin{pmatrix*}
+		3 \\
+		-1 \\
+		-1 \\
+	\end{pmatrix*}, \begin{pmatrix*}
+		-8 \\
+		4 \\
+		5 \\
+	\end{pmatrix*}
+	\right\}\right).
+\end{equation}
+
+Der einzige Schritt, den wir jetzt noch checken müssen ist, ob die Parameter linear abhängig sind oder nicht (vgl. auch \fullref{lineareabhaengigkeit}).
+Aus der Menge der untereinander linear abhängigen Parameter muss dann noch einer ausgewählt werden (welcher ist egal, denn sie sind alle \frq inhaltlich\flq\ gleich) und
+die anderen im Span verworfen werden.
+
 
 \subsection{Eigenwerte und Eigenvektoren}
 
@@ -4105,28 +4142,7 @@ woraus sich der Kern bestimmt als:
 	\end{pmatrix*}.
 \end{equation}
 
-\subsection{Standardskalarprodukt}
 
-Das Standardskalarprodukt von zwei Vektoren bestimmt sich aus der Summe der jeweiligen Zeilen, die multipliziert werden. Man kann schreiben:
-
-\begin{equation}
-	A^{1\times m} \cdot B^{1 \times m} = \sum_{i = 1}^{m} A_i \cdot B_i.
-\end{equation}
-
-Ein Beispiel:
-
-\begin{equation}
-	\begin{pmatrix*}
-		a \\
-		b \\
-		c \\
-	\end{pmatrix*} \cdot 
-	\begin{pmatrix*}
-		d \\
-		e \\
-		f \\
-	\end{pmatrix*} = ab + be + cf.
-\end{equation}
 
 \subsection{Orthogonalräume}
 
@@ -4140,13 +4156,6 @@ Ein Beispiel:
 
 \TODO
 
-\subsection{Schnell Potenzen von Matrizen berechnen}
-
-\TODO
-
-\begin{equation}
-	A = SDS^{-1}
-\end{equation}
 
 \subsection{Projektion}
 
@@ -4163,7 +4172,15 @@ Ein Beispiel:
 
 \subsection{Norm}
 
-\TODO
+Die Norm eines Vektors ist in $R^2$ bzw. $R^3$ vergleichbar mit der Länge eines Vektors.
+Sie wird berechnet über 
+
+\begin{equation}
+	||v||_2 := \sqrt{v_1^2 + v_2^2 + \cdots + v_n^2} = \sqrt{\sum_{i = 1}^{n} v_i^2}
+\end{equation}
+
+Diese Formel ergibt sich aus einer Abstraktion des Satzes von Pythagoras.
+
 
 \subsection{Bestapproximation}
 
