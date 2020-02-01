@@ -1536,6 +1536,10 @@ Modulo nimmt. Damit explodieren die Zahlengrößen nicht ins unermessliche.
 
 Das Gesetz, das erlaubt, nach jeder Zwischenrechnung Modulo zu nehmen, heißt \frq Homomorphieregel\flq\ (vgl. \fullref{homomorphismus}).
 
+\subsection{Chinesischer Restsatz}
+
+\TODO
+
 \subsection{Verschlüsselung}
 
 Verschlüsselungssysteme bieten eine Möglichkeit, Informationen geheimzuhalten und
@@ -1599,15 +1603,32 @@ für einen verschlüsselten Kommunikationskanal verwenden, an den Even nicht her
 
 RSA ist ein assymetrisches Verschlüsselungssystem, das heißt, es benutzt einen öffentlichen und einen privaten Schlüssel.
 
-Folgender Algorithmus beschreibt RSA:
+Zuerst generiert man einen Schlüssel. 
 
 \begin{enumerate}
-	\item Wähle zwei Primzahlen $p, q$, so dass $p \not= q$. $p$ und $q$ müssen geheim bleiben.
-	\item Berechne $n = pq$.
-	\item \TODO
+	\item Wähle zwei zufällige Primzahlen $p, q$, so dass 
+		$p \not= q$. $p$ und $q$ müssen geheim bleiben.
+	\item Berechne $N = pq$.
+	\item Berechne die $\phi$-Funktion von $N$: $\phi(N) = (p - 1)\cdot (q - 1)$
+	\item Wähle eine Zahl $e$, die teilerfremd zu $\phi(N)$ ist und für die gilt,
+		dass $1 < e < \phi(N)$.
+	\item Berechne $d$, so dass $e\cdot d \equiv 1 \mod \phi(N)$.
+	\item Der berechnete Schlüssel ist das Zahlenpaar $(e, d, N)$.
 \end{enumerate}
 
-\TODO
+Um nun damit Nachrichten zu verschlüsseln, berechnet man
+
+\begin{equation}
+	c \equiv m^e \mod N.
+\end{equation}
+
+$c$ ist nun die verschlüsselte Nachricht. Um $c$ wieder zu entschlüsseln berechnet man
+
+\begin{equation}
+	m \equiv c^d \mod N
+\end{equation}
+und erhält die Ursprungsnachricht zurück.
+
 
 \subsection{Graphentheorie}
 
@@ -2160,9 +2181,28 @@ Beispiel.
 \label{kantengraph}
 \end{figure}
 
-\subsubsection{Multigraph}
+\subsubsection{Multigraphen}
 
-\TODO
+\picturetext{
+Multigraphen sind Graphen, in denen zwischen zwei Punkten mehrere Kanten bestehen können.
+
+Ein beispielhafter Multigraph ist der links angebildete. In diesem sind zwischen $a$ und $b$ zwei Verbindungen.}{
+	\begin{tikzpicture}
+		\begin{scope}[every node/.style={circle,thick,draw}]
+			\node (a) at (0,-2) {$a$};
+			\node (b) at (2,0) {$b$};
+			\node (c) at (0,2) {$c$};
+
+		\end{scope}
+
+		\begin{scope}[>={Stealth[black]},]
+			\path [out=-135,in=-225] (a) edge node {} (b);
+			\path (b) edge node {} (a);
+			\path (a) edge node {} (c);
+			\path (b) edge node {} (c);
+		\end{scope}
+	\end{tikzpicture}
+}
 
 \subsubsection{Kantenkontraktion}
 
@@ -2205,10 +2245,9 @@ zwei Knoten $a, b \in E(G)$ verbindet ($e = \left(a, b\right), e \in V(G)$).
 
 \label{gradmatrix}
 
+\picturetext{
 Die Gradmatrix eines Graphen besteht aus Einträgen in der Hauptdiagonale, die 
-je den Grad des Knoten bestimmen. Betrachten wir dazu den Stern $S_4$.
-
-\stargraph{3}{2}
+je den Grad des Knoten bestimmen. Betrachten wir dazu den Stern $S_4$ auf der linken Seite.
 
 Dieser besitzt die Gradmatrix:
 
@@ -2231,7 +2270,7 @@ Dieser besitzt die Gradmatrix:
 	\end{array}
 \end{equation}
 
-Knoten $1$ ist das Zentrum des Sterns.
+Knoten $1$ ist das Zentrum des Sterns.}{\centering \stargraph{3}{2}}
 
 
 \subsubsection{Adjazenzmatrix}
