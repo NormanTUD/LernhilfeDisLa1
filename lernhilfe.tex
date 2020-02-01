@@ -2558,6 +2558,8 @@ Beispiel wäre der Graph von Flüssen, wenn soetwas wie das Wasserstraßenkreuz 
 
 \subsubsection{Minoren}
 
+\label{minoren}
+
 Ein Graph $H$ heißt Minor, wenn er aus dem Graphen $G$ durch \fullref{kantenkontraktion}
 oder durch Weglassen von Kanten oder Knoten entsteht. Die Benennung von Kanten spielt
 hier keine Rolle, so dass $H$ auch dann ein Minor von $G$ ist, wenn die Kantenmengen
@@ -2565,7 +2567,58 @@ beider Graphen disjunkt sind, sie sich aber isomorph verhalten.
 
 \subsubsection{Satz von Kuratowski}
 
-\TODO
+Der Satz von Kuratowski besagt, dass ein Graph exakt dann planar ist,
+wenn er weder $K_5$ noch $K_{3,3}$ als Minoren (vgl. \fullref{minoren}) enthält
+
+
+\picturetext{
+	\begin{tikzpicture}
+		\begin{scope}[every node/.style={circle,thick,draw}]
+			\node (la) at (0,0) {};
+			\node (lb) at (0,2) {};
+			\node (lc) at (0,4) {};
+
+			\node (ra) at (3,0) {};
+			\node (rb) at (3,2) {};
+			\node (rc) at (3,4) {};
+		\end{scope}
+		\begin{scope}[>={Stealth[black]}]
+			\path (la) edge node {} (ra);
+			\path (la) edge node {} (rb);
+			\path (la) edge node {} (rc);
+
+			\path (lb) edge node {} (ra);
+			\path (lb) edge node {} (rb);
+			\path (lb) edge node {} (rc);
+
+			\path (lc) edge node {} (ra);
+			\path (lc) edge node {} (rb);
+			\path (lc) edge node {} (rc);
+		\end{scope}
+	\end{tikzpicture}
+}{
+	Der bipartite Graph (vgl. \fullref{bipartit}) $K_{3,3}$. Wenn durch Wegstreichung
+	und Kantenkontraktion aus einem Graphen auf irgendeine Weise $K_{3,3}$ erzeugt
+	werden kann, ist der Graph nicht planar.
+}
+
+\picturetext{
+	Genauso verhält es sich mit dem Graphen $K_5$. Ist dieser irgendwie durch
+	Kantenkontraktion oder Wegstreichung von Kanten oder Knoten aus einem Graphen
+	$G$ erzeugbar ist, dann ist $G$ nicht planar.
+}{
+	\begin{tikzpicture}[bullet/.style={circle, fill, inner sep=2pt}]
+		\foreach \lab [count=\c, 
+		evaluate=\c as \ang using {18+72*\c}] 
+		in {1, 2, 3, 4 ,5} {
+			\node[bullet] (\c) at (\ang:10mm) {};
+			\node at (\ang:14mm){$\lab$};
+			\foreach \i in {1,...,\c} {
+				\draw(\i)--(\c);
+			}
+		}
+	\end{tikzpicture}
+}
 
 \subsubsection{Eulerscher Polyedersatz}
 
@@ -2599,10 +2652,11 @@ Es gibt in diesem Graph 3 Knoten ($|V(G) = 3$), 3 Kanten ($E(G) = 3$) und zwei
 Flächen ($f = 2$). Es gilt also:
 
 \begin{equation}
-	\underbrace{3}_{|E(G)|} - \underbrace{3}_{|V(G)|} + \underbrace{2}_{f} = 2.
+	\underbrace{\underbrace{3}_{|E(G)|} - \underbrace{3}_{|V(G)|}}_{= 0} + \underbrace{2}_{f} = 2.
 \end{equation}
 
 \subsubsection{Bipartite Graphen}
+\label{bipartit}
 
 Ein Graph heißt \frq bipartit\flq, falls sich seine Knotenmengen aufteilen lassen
 in Partitionsklassen, so, dass zwischen den Knoten in den Partitionsklassen keine
