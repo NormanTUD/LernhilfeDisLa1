@@ -1800,8 +1800,23 @@ Pfade heißen disjunkt, wenn sie keine gleichen Knoten ansteuern, d.\,h. wenn $P
 und $P_2 = \left\{\left\{v_a, v_{a + 1}\right\}, \dots, \left\{v_{a + j}, v_{a + j + 1}\right\}\right\}$ und
 $P_1 \cup P_2 = \emptyset$.
 
-Pfade heißen unabhängig, wenn $P_1 = \left\{\left\{v_1, v_2\right\}, \dots, \left\{v_{n - 1}, v_n\right\}\right\}$ und
-$P_1 = \left\{\left\{u_1, u_2\right\}, \dots, \left\{u_{m - 1}, v_m\right\}\right\}$ mit $a = v_1 = u_1$ und $b = v_n = u_m$ (gleicher
+Pfade heißen unabhängig, wenn 
+\begin{equation}
+	P_1 = \left\{\left\{v_1, v_2\right\}, \dots, \left\{v_{n - 1}, v_n\right\}\right\}
+\end{equation}
+und
+\begin{equation}
+	P_1 = \left\{\left\{u_1, u_2\right\}, \dots, \left\{u_{m - 1}, v_m\right\}\right\}
+\end{equation}
+mit 
+\begin{equation}
+	a = v_1 = u_1
+\end{equation}
+und 
+\begin{equation}
+	b = v_n = u_m
+\end{equation}
+(gleicher
 Start- und Endpunkt), wenn $P_1 \cap P_2 = \left\{a, b\right\}$.
 
 \subsubsection{Ohrendekomposition}
@@ -2133,7 +2148,7 @@ Beispiel.
 			\left\{b, c\right\}
 		\right\}
 	\right)$.
-	Rechts: Der Graph $G' = \left(
+	Rechts: Der Kantengraph von $G: G' = \left(
 		\left\{
 			\left\{a, b\right\},
 			\left\{b, c\right\}
@@ -2170,10 +2185,10 @@ die beiden Knoten zu einem Knoten zusammengefasst.
 			\left\{\left\{3, 4\right\}\right\}
 		\right\}
 	\right)$. Rechts der kantenkontraktierte Graph $G' = \left(
-		\left\{1, \frq 2, 3\flq, 4\right\}
+		\left\{1, \text{\frq} 2, 3\text{\flq}, 4\right\}
 		\left\{
-			\left\{\left\{1, \frq 2, 3\flq\right\}\right\},
-			\left\{\left\{\frq 2, 3\flq, 4\right\}\right\}
+			\left\{\left\{1, \text{\frq} 2, 3\text{\flq}\right\}\right\},
+			\left\{\left\{\text{\frq} 2, 3\text{\flq}, 4\right\}\right\}
 		\right\}
 	\right)$.}
 \label{kontraktiertergraph}
@@ -2834,7 +2849,7 @@ ein Teilerverband und eine Halbordnung, da für alle $x, y \in \mathcal{T}$ gilt
 \subsubsection{Hasse-Diagramme}
 
 
-\begin{wrapfigure}{r}{5cm}
+\begin{wrapfigure}{r}{6cm}
 	\centering
 	\begin{tikzpicture}
 		\node (max) at (0,2) {$70$};
