@@ -1677,6 +1677,7 @@ $E = \binom{V}{2}$, denn dort sind alle Knoten mit allen anderen verbunden. Für
 $E \subset \binom{V}{2}$ ist.
 
 \begin{figure}
+	\centering
 	\begin{tikzpicture}
 		\begin{scope}[every node/.style={circle,thick,draw}]
 			\node (eins) at (0,0) {1};
@@ -2044,75 +2045,79 @@ seine Knoten über die Kantenpfade erreichen.
 Ein Gelenkpunkt ist derjenige Punkt, an dem ein Block endet und ein neuer anfängt. In der Grafik \ref{komplexergraph}
 sind diese Gelenkpunkte $G = \{2, 3, 7, 8\}$.
 
-\begin{tikzpicture}
-	\begin{scope}[every node/.style={circle,thick,draw}]
-		\node (eins) at (0,0) {1};
-		\node [fill=blue!20] (zwei) at (-2,0) {2};
-		\node [fill=blue!20] (drei) at (-2,-2) {3};
-		\node (vier) at (-2,-4) {4};
-		\node (fuenf) at (0,-2) {5};
-		\node (sechs) at (0,-4) {6};
-		\node [fill=blue!20] (sieben) at (2,-4) {7};
-		\node [fill=blue!20] (acht) at (4,-4) {8};
-		\node (zwoelf) at (6,-4) {12};
-		\node (zehn) at (4,-2) {10};
-		\node (elf) at (4,0) {11};
-		\node (neun) at (2,-2) {9};
-	\end{scope}
+\begin{center}
+	\begin{tikzpicture}
+		\begin{scope}[every node/.style={circle,thick,draw}]
+			\node (eins) at (0,0) {1};
+			\node [fill=blue!20] (zwei) at (-2,0) {2};
+			\node [fill=blue!20] (drei) at (-2,-2) {3};
+			\node (vier) at (-2,-4) {4};
+			\node (fuenf) at (0,-2) {5};
+			\node (sechs) at (0,-4) {6};
+			\node [fill=blue!20] (sieben) at (2,-4) {7};
+			\node [fill=blue!20] (acht) at (4,-4) {8};
+			\node (zwoelf) at (6,-4) {12};
+			\node (zehn) at (4,-2) {10};
+			\node (elf) at (4,0) {11};
+			\node (neun) at (2,-2) {9};
+		\end{scope}
 
-	\begin{scope}[>={Stealth[black]},
-	]
-		\path (eins) edge node {} (zwei);
-		\path (zwei) edge node {} (drei);
-		\path (drei) edge node {} (vier);
-		\path (drei) edge node {} (fuenf);
-		\path (fuenf) edge node {} (sechs);
-		\path (fuenf) edge node {} (sieben);
-		\path (vier) edge node {} (sechs);
-		\path (sechs) edge node {} (sieben);
-		\path (sieben) edge node {} (acht);
-		\path (acht) edge node {} (zwoelf);
-		\path (acht) edge node {} (neun);
-		\path (neun) edge node {} (elf);
-		\path (elf) edge node {} (zehn);
-		\path (acht) edge node {} (zehn);
-	\end{scope}
-\end{tikzpicture}
+		\begin{scope}[>={Stealth[black]},
+		]
+			\path (eins) edge node {} (zwei);
+			\path (zwei) edge node {} (drei);
+			\path (drei) edge node {} (vier);
+			\path (drei) edge node {} (fuenf);
+			\path (fuenf) edge node {} (sechs);
+			\path (fuenf) edge node {} (sieben);
+			\path (vier) edge node {} (sechs);
+			\path (sechs) edge node {} (sieben);
+			\path (sieben) edge node {} (acht);
+			\path (acht) edge node {} (zwoelf);
+			\path (acht) edge node {} (neun);
+			\path (neun) edge node {} (elf);
+			\path (elf) edge node {} (zehn);
+			\path (acht) edge node {} (zehn);
+		\end{scope}
+	\end{tikzpicture}
+\end{center}
 
 \subsubsection{Blockgraphen}
 
 Zur Erstellung eines Blockgraphen nimmt man die (eingefärbten) Gelenkpunkte und verkürzt die Darstellung insofern, als dass man 
 für alle Untergraphen, die Blöcke bilden, nur ihre Abkürzung wählt. 
 
-\begin{tikzpicture}
-	\begin{scope}[every node/.style={circle,thick,draw}]
-		\node [fill=blue!20] (zwei) at (0,0) {2};
-		\node (BEins) at (-1,-1) {$B_1$};
-		\node (BZwei) at (1,-1) {$B_2$};
-		\node [fill=blue!20] (drei) at (2,0) {3};
-		\node (BDrei) at (3,-1) {$B_3$};
-		\node [fill=blue!20] (sieben) at (4,0) {7};
-		\node (BVier) at (5,-1) {$B_4$};
-		\node [fill=blue!20] (acht) at (6,0) {8};
-		\node (BFuenf) at (6,-1) {$B_5$};
-		\node (BSechs) at (7,-1) {$B_6$};
+\begin{center}
+	\begin{tikzpicture}
+		\begin{scope}[every node/.style={circle,thick,draw}]
+			\node [fill=blue!20] (zwei) at (0,0) {2};
+			\node (BEins) at (-1,-1) {$B_1$};
+			\node (BZwei) at (1,-1) {$B_2$};
+			\node [fill=blue!20] (drei) at (2,0) {3};
+			\node (BDrei) at (3,-1) {$B_3$};
+			\node [fill=blue!20] (sieben) at (4,0) {7};
+			\node (BVier) at (5,-1) {$B_4$};
+			\node [fill=blue!20] (acht) at (6,0) {8};
+			\node (BFuenf) at (6,-1) {$B_5$};
+			\node (BSechs) at (7,-1) {$B_6$};
 
-	\end{scope}
+		\end{scope}
 
-	\begin{scope}[>={Stealth[black]},
-	]
-		\path (zwei) edge node {} (BEins);
-		\path (zwei) edge node {} (BZwei);
-		\path (drei) edge node {} (BZwei);
-		\path (drei) edge node {} (BDrei);
-		\path (sieben) edge node {} (BDrei);
-		\path (sieben) edge node {} (BVier);
-		\path (acht) edge node {} (BVier);
-		\path (acht) edge node {} (BFuenf);
-		\path (acht) edge node {} (BSechs);
+		\begin{scope}[>={Stealth[black]},
+		]
+			\path (zwei) edge node {} (BEins);
+			\path (zwei) edge node {} (BZwei);
+			\path (drei) edge node {} (BZwei);
+			\path (drei) edge node {} (BDrei);
+			\path (sieben) edge node {} (BDrei);
+			\path (sieben) edge node {} (BVier);
+			\path (acht) edge node {} (BVier);
+			\path (acht) edge node {} (BFuenf);
+			\path (acht) edge node {} (BSechs);
 
-	\end{scope}
-\end{tikzpicture}
+		\end{scope}
+	\end{tikzpicture}
+\end{center}
 
 \begin{equation}
 	V = \left\{\underbrace{2, 3, 7, 8}_\text{Gelenkpunkte}, \underbrace{B_1, B_2, B_3, B_4, B_5, B_6}_{\text{Blöcke von } G}\right\}
@@ -2331,25 +2336,28 @@ Spannbäume von $G = \left\{\left\{a, b, c, d\right\}, \left\{
 	\left\{d, b\right\}
 \right\}\right\}$.
 
-\begin{tikzpicture}
-	\begin{scope}[every node/.style={circle,thick,draw}]
-		\node (a) at (-1,-1) {$a$};
-		\node (b) at (1,-1) {$b$};
-		\node (c) at (-1,1) {$c$};
-		\node (d) at (1,1) {$d$};
-	\end{scope}
+\begin{center}
+	\begin{tikzpicture}
+		\begin{scope}[every node/.style={circle,thick,draw}]
+			\node (a) at (-1,-1) {$a$};
+			\node (b) at (1,-1) {$b$};
+			\node (c) at (-1,1) {$c$};
+			\node (d) at (1,1) {$d$};
+		\end{scope}
 
-	\begin{scope}[>={Stealth[black]}]
-		\path (a) edge node {} (c);
-		\path (b) edge node {} (a);
-		\path (c) edge node {} (d);
-		\path (d) edge node {} (b);
-	\end{scope}
-\end{tikzpicture}
+		\begin{scope}[>={Stealth[black]}]
+			\path (a) edge node {} (c);
+			\path (b) edge node {} (a);
+			\path (c) edge node {} (d);
+			\path (d) edge node {} (b);
+		\end{scope}
+	\end{tikzpicture}
+\end{center}
 
 \vspace{1cm}
 
 \picturetext{
+	\centering
 	\begin{tikzpicture}
 		\begin{scope}[every node/.style={circle,thick,draw}]
 			\node (a) at (-1,-1) {$a$};
@@ -2365,6 +2373,7 @@ Spannbäume von $G = \left\{\left\{a, b, c, d\right\}, \left\{
 		\end{scope}
 	\end{tikzpicture}
 }{
+	\centering
 	\begin{tikzpicture}
 		\begin{scope}[every node/.style={circle,thick,draw}]
 			\node (a) at (-1,-1) {$a$};
@@ -2382,6 +2391,7 @@ Spannbäume von $G = \left\{\left\{a, b, c, d\right\}, \left\{
 }
 
 \picturetext{
+	\centering
 	\begin{tikzpicture}
 		\begin{scope}[every node/.style={circle,thick,draw}]
 			\node (a) at (-1,-1) {$a$};
@@ -2397,6 +2407,7 @@ Spannbäume von $G = \left\{\left\{a, b, c, d\right\}, \left\{
 		\end{scope}
 	\end{tikzpicture}
 }{
+	\centering
 	\begin{tikzpicture}
 		\begin{scope}[every node/.style={circle,thick,draw}]
 			\node (a) at (-1,-1) {$a$};
@@ -2440,22 +2451,24 @@ Nehmen wir den Graphen $G = \left(
 \right)$ als Beispiel.
 
 
-\begin{tikzpicture}
-	\begin{scope}[every node/.style={circle,thick,draw}]
-		\node (eins) at (-1,-1) {$1$};
-		\node (zwei) at (1,-1) {$2$};
-		\node (drei) at (-1,1) {$3$};
-		\node (vier) at (1,1) {$4$};
-	\end{scope}
+\begin{center}
+	\begin{tikzpicture}
+		\begin{scope}[every node/.style={circle,thick,draw}]
+			\node (eins) at (-1,-1) {$1$};
+			\node (zwei) at (1,-1) {$2$};
+			\node (drei) at (-1,1) {$3$};
+			\node (vier) at (1,1) {$4$};
+		\end{scope}
 
-	\begin{scope}[>={Stealth[black]}]
-		\path (eins) edge node {} (zwei);
-		\path (eins) edge node {} (drei);
-		\path (drei) edge node {} (vier);
-		\path (zwei) edge node {} (drei);
-		\path (zwei) edge node {} (vier);
-	\end{scope}
-\end{tikzpicture}
+		\begin{scope}[>={Stealth[black]}]
+			\path (eins) edge node {} (zwei);
+			\path (eins) edge node {} (drei);
+			\path (drei) edge node {} (vier);
+			\path (zwei) edge node {} (drei);
+			\path (zwei) edge node {} (vier);
+		\end{scope}
+	\end{tikzpicture}
+\end{center}
 
 Erzeugen wir als erstes die Adjazenzmatrix 
 
@@ -2566,53 +2579,59 @@ Blatt hängt, geschrieben. Dies wird iterativ fortgeführt, bis nur noch zwei Kn
 
 Beispiel.
 
-\begin{tikzpicture}
-	\begin{scope}[every node/.style={circle,thick,draw}]
-		\node (a) at (0,0) {$1$};
-		\node (b) at (-1,-1) {$2$};
-		\node (c) at (1,-1) {$3$};
-		\node (d) at (2,-2) {$4$};
-	\end{scope}
+\begin{center}
+	\begin{tikzpicture}
+		\begin{scope}[every node/.style={circle,thick,draw}]
+			\node (a) at (0,0) {$1$};
+			\node (b) at (-1,-1) {$2$};
+			\node (c) at (1,-1) {$3$};
+			\node (d) at (2,-2) {$4$};
+		\end{scope}
 
-	\begin{scope}[>={Stealth[black]}]
-		\path (a) edge node {} (c);
-		\path (b) edge node {} (a);
-		\path (c) edge node {} (d);
-	\end{scope}
-\end{tikzpicture}
+		\begin{scope}[>={Stealth[black]}]
+			\path (a) edge node {} (c);
+			\path (b) edge node {} (a);
+			\path (c) edge node {} (d);
+		\end{scope}
+	\end{tikzpicture}
+\end{center}
 
 Die Blätter dieses Baumes sind $2, 4$. Das Blatt mit der geringsten Beschriftung
 ist die $2$. Also entfernen wir die $2$ und schreiben die $1$, an der die $2$ hängt,
 in den Prüfercode.
 
-\begin{tikzpicture}
-	\begin{scope}[every node/.style={circle,thick,draw}]
-		\node (a) at (0,0) {$1$};
-		\node (c) at (1,-1) {$3$};
-		\node (d) at (2,-2) {$4$};
-	\end{scope}
+\begin{center}
+	\begin{tikzpicture}
+		\begin{scope}[every node/.style={circle,thick,draw}]
+			\node (a) at (0,0) {$1$};
+			\node (c) at (1,-1) {$3$};
+			\node (d) at (2,-2) {$4$};
+		\end{scope}
 
-	\begin{scope}[>={Stealth[black]}]
-		\path (a) edge node {} (c);
-		\path (c) edge node {} (d);
-	\end{scope}
-\end{tikzpicture}
+		\begin{scope}[>={Stealth[black]}]
+			\path (a) edge node {} (c);
+			\path (c) edge node {} (d);
+		\end{scope}
+	\end{tikzpicture}
+\end{center}
 
 Prüfer-Code: $2$.
 
 Das nächstgeringste Blatt ist die $1$, also entfernen wir die $1$ und schreiben
 die $3$ in den Prüfer-Code.
 
-\begin{tikzpicture}
-	\begin{scope}[every node/.style={circle,thick,draw}]
-		\node (c) at (1,-1) {$3$};
-		\node (d) at (2,-2) {$4$};
-	\end{scope}
+\begin{center}
+	\begin{tikzpicture}
+		\begin{scope}[every node/.style={circle,thick,draw}]
+			\node (c) at (1,-1) {$3$};
+			\node (d) at (2,-2) {$4$};
+		\end{scope}
 
-	\begin{scope}[>={Stealth[black]}]
-		\path (c) edge node {} (d);
-	\end{scope}
-\end{tikzpicture}
+		\begin{scope}[>={Stealth[black]}]
+			\path (c) edge node {} (d);
+		\end{scope}
+	\end{tikzpicture}
+\end{center}
 
 Prüfer-Code: $2, 3$.
 
