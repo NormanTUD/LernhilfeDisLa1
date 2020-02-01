@@ -2160,6 +2160,10 @@ Beispiel.
 \label{kantengraph}
 \end{figure}
 
+\subsubsection{Multigraph}
+
+\TODO
+
 \subsubsection{Kantenkontraktion}
 
 \label{kantenkontraktion}
@@ -2167,15 +2171,18 @@ Beispiel.
 Bei einer Kantenkontraktion wird eine Kante zwischen zwei Knoten entfernt und 
 die beiden Knoten zu einem Knoten zusammengefasst.
 
-\begin{figure}[h!!!]
+Als Notation wurde eingeführt: $G/e$, wobei $e$ eine Kante ist, die 
+zwei Knoten $a, b \in E(G)$ verbindet ($e = \left(a, b\right), e \in V(G)$).
+
+\begin{figure}[h!]
 \centering
 \begin{subfigure}{.5\textwidth}
 	\centering
-	\includegraphics{kontrakt.pdf}
+	\includegraphics[scale=0.8]{kontrakt.pdf}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
 	\centering
-	\includegraphics{kontrakt2.pdf}
+	\includegraphics[scale=0.8]{kontrakt2.pdf}
 \end{subfigure}
 	\caption{Links: Der Graph $G = \left(
 			\left\{1, 2, 3, 4\right\}, 
@@ -4060,6 +4067,28 @@ woraus sich der Kern bestimmt als:
 	\end{pmatrix*}.
 \end{equation}
 
+\subsection{Standardskalarprodukt}
+
+Das Standardskalarprodukt von zwei Vektoren bestimmt sich aus der Summe der jeweiligen Zeilen, die multipliziert werden. Man kann schreiben:
+
+\begin{equation}
+	A^{1\times m} \cdot B^{1 \times m} = \sum_{i = 1}^{m} A_i \cdot B_i.
+\end{equation}
+
+Ein Beispiel:
+
+\begin{equation}
+	\begin{pmatrix*}
+		a \\
+		b \\
+		c \\
+	\end{pmatrix*} \cdot 
+	\begin{pmatrix*}
+		d \\
+		e \\
+		f \\
+	\end{pmatrix*} = ab + be + cf.
+\end{equation}
 
 \subsection{Orthogonalräume}
 
@@ -4082,6 +4111,33 @@ woraus sich der Kern bestimmt als:
 \end{equation}
 
 \subsection{Projektion}
+
+\TODO
+
+
+\subsection{Gram-Schmidt-Verfahren}
+
+\TODO
+
+\subsection{Norm}
+
+\TODO
+
+\subsection{Bestapproximation}
+
+Sei $Ax = b$ ein lineares Gleichungssystem ohne Lösung (z.\,B. durch Messungen gewonnene Punkkte), die nicht
+exakt auf eine Linie fallen. Dann kann man mit einer Bestapproximation ein lineares Gleichungssystem finden,
+das sich dem ursprünglichen unlösbaren LGS möglichst nah annähert. Das heißt, dass zwischen den einzelnen 
+gemessenen Punkten eine möglichst kleine Distanz zu den Punkten in der Funktion befindet.
+
+Dafür gilt:
+
+\begin{equation}
+	\forall u\in U: ||v - \hat{v}|| = ||v - u||,
+\end{equation}
+\begin{equation}
+	\hat{v} = \text{proj}_uv
+\end{equation}
 
 \TODO
 
