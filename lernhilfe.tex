@@ -72,6 +72,7 @@
 
 \usetikzlibrary{calc,trees,positioning,arrows,chains,shapes.geometric,%
     shapes,shadows,matrix}
+\usepackage{tikzpeople}
 
 
 \usepackage[
@@ -1221,6 +1222,8 @@ aber $(\mathbb{N}, /)$ (Division) ist keine, denn $\lnot \forall a, b \in \mathb
 
 \subsubsection{Spezialfall: Zyklische Gruppen}
 
+\label{zyklischegruppe}
+
 Eine zyklische Gruppe ist eine Gruppe modulo $n$, in der ein Element $g$ existiert, das, wenn man es potenziert, alle anderen Elemente der 
 Gruppe erreicht.
 
@@ -1531,9 +1534,56 @@ trotzdem gleichzeitig über öffentliche Netze zu übertragen, so dass jeder die
 übertragenen Daten mitlesen, aber nur die gewünschten Personen diese Daten entschlüsseln
 können.
 
-\subsubsection{Diffie-Hellmann}
+\subsubsection{Diffie-Hellman}
 
-\TODO
+Mit Diffie-Hellman kann man über einen öffentlichen Kanal einen privaten Schlüssel
+austauschen, ohne dass andere als Sender und Empfänger die Möglichkeit haben, diesen
+Schlüssel abzugreifen.
+
+Stellen wir uns die Situation vor, dass Alice Bob ein Geheimnis mitteilen will,
+während Eve jede Kommunikation zwischen Beiden mithören kann.
+
+\vspace{0.5cm}
+
+\begin{center}
+	\begin{tikzpicture}[every node/.style={minimum width=1.5cm}]
+		\node[alice] (alice) {Alice};
+		\node[bob, right= 4cm of alice, mirrored] (bob) {Bob};
+		\draw[->, thick] (alice) -- coordinate[near start] (aux) (bob);
+		\node[devil, above right=-5mm and 1cm of alice] (priest) {Eve};
+		\draw[->,red, ultra thick] (priest)--(aux);
+	\end{tikzpicture}
+\end{center}
+
+\vspace{0.5cm}
+
+Dazu einigen Alice und Bob sich zuerst öffentlich auf eine große Primzahl $p$ und
+eine Zahl $g \in \mathbb{N}$, für die gilt: $g < p$. $g$ ist dabei ein Erzeuger
+der zyklischen Gruppe $\mathbb{Z}_p$ (vgl. \fullref{zyklischegruppe}).
+
+Dann erzeugen Alice und Bob je eine zufällige Zahl zwischen $1$ und $p - 1$, die 
+sie für sich behalten. Alice behält die Zahl $a$ für sich und Bob die Zahl $b$.
+
+Nun berechnet Alice mit ihrer geheimen Zahl einen öffentlichen Schlüssel:
+
+\begin{equation}
+	A = g^a \mod p.
+\end{equation}
+
+Sie schickt nun dieses $A$ über den unsicheren Kommunikationskanal an Bob. Bob berechnet
+mit seiner geheimen Zahl auch einen öffentlichen Schlüssel:
+
+\begin{equation}
+	B = g^b \mod p,
+\end{equation}
+
+und schickt diesen an Alice.
+
+Nun kennen Alice und Bob jeweils $A$ und $B$. Mit dem privaten Schlüssel $a$ berechnet
+Alice nun $K_1 = B^a \mod p$. Bob berechnet widerrum $K_2 = A^b \mod p$. Dabei gilt:
+$K_1 = K_2$. Dieses $K$ ist für Eve nicht berechenbar, denn Eve kennt die geheimen
+Schlüssel der Beiden nicht. Nun können Alice und Bob $K$ als gemeinsamen Schlüssel
+für einen verschlüsselten Kommunikationskanal verwenden, an den Even nicht herankommt.
 
 \subsubsection{RSA}
 
@@ -1556,7 +1606,7 @@ Modulsystemen anführen oder Navigationssysteme.
 
 Ein Graph besteht aus Knoten (Edges) und Kanten (Vertices). Eine Knote kann z.\,B. ein Ort sein, eine Kante die Straße, die zu ihm führt.
 
-\begin{figure}
+\begin{figure}[h!]
 	\centering
 	\begin{tikzpicture}
 		\def \n {5}
@@ -2457,13 +2507,13 @@ die $3$ in den Prüfer-Code.
 
 Prüfer-Code: $2, 3$.
 
-Nun sind nur noch die Knoten $3, 4$ übrig. Das heißt, der Algorithmus terminiert hier.
+Nun sind nur noch die Knoten $3, 4$ übrig. Das heißt, der Algorithmus terminiert hier
+und an den Prüfer-Code wird das leere Wort $\epsilon$ angehangen: $2, 3, \epsilon$.
 
 Zur Rekonstruktion braucht man nun die Knotenmenge, $E(G) = \left\{1, 2, 3, 4\right\}$, 
-und den Prüfer-Code. \TODO
+und den Prüfer-Code. 
 
-
-
+\TODO
 
 \subsubsection{Planare Graphen}
 
@@ -3752,7 +3802,7 @@ Ein besseres Beispiel ist das Folgende, denn dort kommen \frq schönere\flq\ Eig
 		3 & -1 & 0 \\
 		2 & 0 & 0 \\
 		-2 & 2 & -1 \\
-	\end{pmatrix*} - \lambda E\right)
+	\end{pmatrix*} - \lambda E^{3\times 3}\right)
 	\Leftrightarrow
 \end{equation}
 \begin{equation}
