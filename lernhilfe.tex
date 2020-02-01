@@ -2569,11 +2569,85 @@ beider Graphen disjunkt sind, sie sich aber isomorph verhalten.
 
 \subsubsection{Eulerscher Polyedersatz}
 
-\TODO
+Der eulersche Polyedersatz besagt, dass bei zusammenhängenden planaren Graphen
+folgende Formel gilt:
+
+\begin{equation}
+	|E(G)| - |V(G)| + f = 2
+\end{equation}
+
+Dabei beschreibt $|E(G)|$ die Anzahl der Knoten, $|V(G)|$ die Anzahl der Kanten
+und $f$ die Anzahl der Fläche, die im Graph (inklusive der einheitlichen Fläche
+außerhalb des Graphen) entstehen.
+
+\begin{center}
+	\begin{tikzpicture}
+		\begin{scope}[every node/.style={circle,thick,draw}]
+			\node (a) at (0,0) {$1$};
+			\node (b) at (0,2) {$2$};
+			\node (c) at (2,0) {$3$};
+		\end{scope}
+		\begin{scope}[>={Stealth[black]}]
+			\path (a) edge node {} (b);
+			\path (b) edge node {} (c);
+			\path (c) edge node {} (a);
+		\end{scope}
+	\end{tikzpicture}
+\end{center}
+
+Es gibt in diesem Graph 3 Knoten ($|V(G) = 3$), 3 Kanten ($E(G) = 3$) und zwei
+Flächen ($f = 2$). Es gilt also:
+
+\begin{equation}
+	\underbrace{3}_{|E(G)|} - \underbrace{3}_{|V(G)|} + \underbrace{2}_{f} = 2.
+\end{equation}
 
 \subsubsection{Bipartite Graphen}
 
-\TODO
+Ein Graph heißt \frq bipartit\flq, falls sich seine Knotenmengen aufteilen lassen
+in Partitionsklassen, so, dass zwischen den Knoten in den Partitionsklassen keine
+Verbindungen bestehen.
+
+\picturetext{
+	\centering
+	\begin{tikzpicture}
+		\begin{scope}[every node/.style={circle,thick,draw}]
+			\node (la) at (0,2) {$1$};
+			\node (lb) at (0,1) {$2$};
+			\node (lc) at (0,0) {$3$};
+			\node (ld) at (0,-1) {$4$};
+
+			\node (ra) at (2,2) {$5$};
+			\node (rb) at (2,1) {$6$};
+			\node (rc) at (2,0) {$7$};
+			\node (rd) at (2,-1) {$8$};
+		\end{scope}
+
+		\begin{scope}[>={Stealth[black]}]
+			\path (la) edge node {} (ra);
+			\path (la) edge node {} (rb);
+			\path (la) edge node {} (rc);
+			\path (la) edge node {} (rd);
+
+			\path (lb) edge node {} (ra);
+			\path (lb) edge node {} (rb);
+			\path (lb) edge node {} (rc);
+			\path (lb) edge node {} (rd);
+
+			\path (lc) edge node {} (ra);
+			\path (lc) edge node {} (rb);
+			\path (lc) edge node {} (rc);
+			\path (lc) edge node {} (rd);
+
+			\path (ld) edge node {} (ra);
+			\path (ld) edge node {} (rb);
+			\path (ld) edge node {} (rc);
+			\path (ld) edge node {} (rd);
+		\end{scope}
+	\end{tikzpicture}
+}{Im links gezeigten Graph entstehen zwei Partitionsklassen, nämlich $\{1, 2, 3, 4\}$
+und $\{5, 6, 7, 8\}$, denn innerhalb dieser Partitionsklassen befinden sich keine
+Verbindungen.}
 
 \subsection{Partitionen}
 
