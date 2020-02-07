@@ -3771,14 +3771,41 @@ Ist ein Vorfaktor in jeder Zeile, wie z.\,B. ein \frq -\flq, dann kann man ihn a
 	\end{pmatrix*}.
 \end{equation}
 
-\subsubsection{Schnell Potenzen von Matrizen berechnen}
+\subsubsection{Matrixdiagonalisierung}
 
-\TODO
+Eine Diagonalmatrix hat für einige Anwendungen, z.B. die Potenzierung mit großen Zahlen (vgl. \fullref{schnellpotenz}), Vorteile. Sie besteht aus einer Matrix, 
+in der nur auf der Hauptdiagonale von $0$ verschiedene Elemente sind. 
+
+Beispiel:
 
 \begin{equation}
-	A = SDS^{-1}
+	D = \begin{pmatrix*}
+		a & 0 & 0 & 0 \\
+		0 & b & 0 & 0 \\
+		0 & 0 & c & 0 \\
+		0 & 0 & 0 & d \\
+	\end{pmatrix*}.
 \end{equation}
 
+Das Inverse einer Matrix bestimmt man durch die Eigenwerte, so dass man erst die Eigenwerte berechnet (vgl. \fullref{eigenwerte}) und diese
+dann anstelle von $a, b, c, d, \dots$ einsetzt.
+
+\TODO  % CHECKEN
+
+\subsubsection{Schnell Potenzen von Matrizen berechnen}
+
+\label{schnellpotenz}
+
+Gegeben sei die Matrix $A$. Schritt 1: Diagonalmatrix $D$ bilden. Schritt zwei: Inverses $S$ bilden. Schritt drei: das Inverse von $S$ bilden ($S^{-1}$).
+
+
+\begin{equation}
+	A^{2020} = SD^{2020}S^{-1}
+\end{equation}
+
+Nun muss man nur noch die Diagonalelemente mit $2020$ potenzieren.
+
+\TODO
 
 \subsection{Vektorräume und Untervektorräume}
 
@@ -3950,6 +3977,8 @@ die anderen im Span verworfen werden.
 
 
 \subsection{Eigenwerte und Eigenvektoren}
+
+\label{eigenwerte}
 
 Der Eigenwert $\lambda$ bestimmt sich dadurch, dass eine Matrix $A$ mal einem Vektor $x$ gleich ist mit dem skalaren $\lambda \cdot x$,
 oder in Formeln:
